@@ -13,6 +13,10 @@
 		D97AA1271A2F93F30075A040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97AA1261A2F93F30075A040 /* Images.xcassets */; };
 		D97AA12A1A2F93F30075A040 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D97AA1281A2F93F30075A040 /* LaunchScreen.xib */; };
 		D97AA1361A2F93F30075A040 /* AutoLayoutUITableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1351A2F93F30075A040 /* AutoLayoutUITableViewTests.swift */; };
+		D97AA1401A2F94110075A040 /* AutoLayoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA13F1A2F94110075A040 /* AutoLayoutTableViewController.swift */; };
+		D97AA1421A2F94800075A040 /* UITableViewCell+HeightCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1411A2F94800075A040 /* UITableViewCell+HeightCalculation.swift */; };
+		D97AA1441A2FA28D0075A040 /* OneHundredRowsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */; };
+		D97AA1461A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1451A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		D97AA12F1A2F93F30075A040 /* AutoLayoutUITableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutUITableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97AA1341A2F93F30075A040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97AA1351A2F93F30075A040 /* AutoLayoutUITableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUITableViewTests.swift; sourceTree = "<group>"; };
+		D97AA13F1A2F94110075A040 /* AutoLayoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutTableViewController.swift; sourceTree = "<group>"; };
+		D97AA1411A2F94800075A040 /* UITableViewCell+HeightCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+HeightCalculation.swift"; sourceTree = "<group>"; };
+		D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneHundredRowsTableViewController.swift; sourceTree = "<group>"; };
+		D97AA1451A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,10 @@
 				D97AA1261A2F93F30075A040 /* Images.xcassets */,
 				D97AA1281A2F93F30075A040 /* LaunchScreen.xib */,
 				D97AA11D1A2F93F30075A040 /* Supporting Files */,
+				D97AA13F1A2F94110075A040 /* AutoLayoutTableViewController.swift */,
+				D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */,
+				D97AA1411A2F94800075A040 /* UITableViewCell+HeightCalculation.swift */,
+				D97AA1451A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift */,
 			);
 			path = AutoLayoutUITableView;
 			sourceTree = "<group>";
@@ -212,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D97AA1461A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift in Sources */,
+				D97AA1401A2F94110075A040 /* AutoLayoutTableViewController.swift in Sources */,
 				D97AA1221A2F93F30075A040 /* ViewController.swift in Sources */,
+				D97AA1421A2F94800075A040 /* UITableViewCell+HeightCalculation.swift in Sources */,
+				D97AA1441A2FA28D0075A040 /* OneHundredRowsTableViewController.swift in Sources */,
 				D97AA1201A2F93F30075A040 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

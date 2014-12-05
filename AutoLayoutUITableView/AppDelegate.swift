@@ -11,11 +11,27 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    var window: UIWindow!
+    var groupedTableNavigationController: UINavigationController!
+    var plainTableNavigationController: UINavigationController!
+    var tabBarController: UITabBarController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        let groupedTableViewController = OneHundredRowsTableViewController(style: .Grouped)
+        self.groupedTableNavigationController = UINavigationController(rootViewController: groupedTableViewController)
+
+        let plainTableViewController = OneHundredRowsTableViewController(style: .Plain)
+        self.plainTableNavigationController = UINavigationController(rootViewController: plainTableViewController)
+        
+        self.tabBarController = UITabBarController()
+        self.tabBarController.addChildViewController(self.groupedTableNavigationController)
+        self.tabBarController.addChildViewController(self.plainTableNavigationController)
+        
+        self.window.rootViewController = self.tabBarController
+        self.window.makeKeyAndVisible()
+        
         return true
     }
 

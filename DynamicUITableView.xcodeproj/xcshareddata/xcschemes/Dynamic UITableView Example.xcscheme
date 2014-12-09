@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-               BuildableName = "AutoLayoutUITableView.app"
-               BlueprintName = "AutoLayoutUITableView"
-               ReferencedContainer = "container:AutoLayoutUITableView.xcodeproj">
+               BuildableName = "Dynamic UITableView.app"
+               BlueprintName = "Dynamic UITableView"
+               ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D97AA12E1A2F93F30075A040"
-               BuildableName = "AutoLayoutUITableViewTests.xctest"
-               BlueprintName = "AutoLayoutUITableViewTests"
-               ReferencedContainer = "container:AutoLayoutUITableView.xcodeproj">
+               BuildableName = "Dynamic UITableViewTests.xctest"
+               BlueprintName = "Dynamic UITableViewTests"
+               ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D97AA12E1A2F93F30075A040"
-               BuildableName = "AutoLayoutUITableViewTests.xctest"
-               BlueprintName = "AutoLayoutUITableViewTests"
-               ReferencedContainer = "container:AutoLayoutUITableView.xcodeproj">
+               BuildableName = "Dynamic UITableViewTests.xctest"
+               BlueprintName = "Dynamic UITableViewTests"
+               ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "AutoLayoutUITableView.app"
-            BlueprintName = "AutoLayoutUITableView"
-            ReferencedContainer = "container:AutoLayoutUITableView.xcodeproj">
+            BuildableName = "Dynamic UITableView.app"
+            BlueprintName = "Dynamic UITableView"
+            ReferencedContainer = "container:DynamicUITableView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,13 +72,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "AutoLayoutUITableView.app"
-            BlueprintName = "AutoLayoutUITableView"
-            ReferencedContainer = "container:AutoLayoutUITableView.xcodeproj">
+            BuildableName = "Dynamic UITableView.app"
+            BlueprintName = "Dynamic UITableView"
+            ReferencedContainer = "container:DynamicUITableView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -90,13 +91,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "AutoLayoutUITableView.app"
-            BlueprintName = "AutoLayoutUITableView"
-            ReferencedContainer = "container:AutoLayoutUITableView.xcodeproj">
+            BuildableName = "Dynamic UITableView.app"
+            BlueprintName = "Dynamic UITableView"
+            ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

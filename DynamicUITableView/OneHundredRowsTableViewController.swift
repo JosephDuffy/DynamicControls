@@ -1,6 +1,6 @@
 //
 //  OneHundredRowsTableViewController.swift
-//  AutoLayoutUITableView
+//  Dynamic UITableView
 //
 //  Created by Joseph Duffy on 03/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -8,10 +8,42 @@
 
 import UIKit
 
-class OneHundredRowsTableViewController: AutoLayoutTableViewController {
+class OneHundredRowsTableViewController: DynamicUITableViewController {
 
-    private var cellContents: [NSIndexPath : String]!
-    private var reversedCellContents: [NSIndexPath : String]!
+    private lazy var cellContents: [NSIndexPath : String] = {
+        var cellContents = [NSIndexPath : String]()
+        
+        for section in 0..<self.numberOfSectionsInTableView(self.tableView) {
+            for row in 0..<self.tableView(self.tableView, numberOfRowsInSection: section) {
+                let indexPath = NSIndexPath(forRow: row, inSection: section)
+                let length = (row + 1) * 20
+                let randomString = self.randomStringWithLength(length)
+                
+                cellContents.updateValue(randomString, forKey: indexPath)
+            }
+        }
+        
+        return cellContents
+    }()
+    private lazy var reversedCellContents: [NSIndexPath : String] = {
+        var reversedCellContents = [NSIndexPath : String]()
+        
+        for section in 0..<self.numberOfSectionsInTableView(self.tableView) {
+            for row in 0..<self.tableView(self.tableView, numberOfRowsInSection: section) {
+                let indexPath = NSIndexPath(forRow: row, inSection: section)
+                let randomString = self.cellContents[indexPath]!
+                
+                var reversedRandomString = ""
+                for char in randomString {
+                    reversedRandomString = String(char) + reversedRandomString
+                }
+                
+                reversedCellContents.updateValue(reversedRandomString, forKey: indexPath)
+            }
+        }
+        
+        return reversedCellContents
+    }()
     
     override init(style: UITableViewStyle) {
         super.init(style: style)
@@ -31,27 +63,6 @@ class OneHundredRowsTableViewController: AutoLayoutTableViewController {
         
         self.tableView.registerClass(SegmentedControlHeaderView.classForCoder(), forHeaderFooterViewReuseIdentifier: "SegmentedControlHeader")
 
-        self.generateData()
-    }
-    
-    private func generateData() {
-        self.cellContents = [NSIndexPath : String]()
-        self.reversedCellContents = [NSIndexPath : String]()
-        
-        for section in 0..<self.numberOfSectionsInTableView(self.tableView) {
-            for row in 0..<self.tableView(self.tableView, numberOfRowsInSection: section) {
-                let indexPath = NSIndexPath(forRow: row, inSection: section)
-                let length = ((section + 1) * (row + 1)) * 10
-                let randomString = self.randomStringWithLength(length)
-                self.cellContents.updateValue(randomString, forKey: indexPath)
-                
-                var reversedRandomString = ""
-                for char in randomString {
-                    reversedRandomString = String(char) + reversedRandomString
-                }
-                self.reversedCellContents.updateValue(reversedRandomString, forKey: indexPath)
-            }
-        }
     }
     
     private func randomStringWithLength(length: Int) -> String {
@@ -71,15 +82,15 @@ class OneHundredRowsTableViewController: AutoLayoutTableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return 10
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
 
     override func cellReuseIdentifierForIndexPath(indexPath: NSIndexPath) -> String? {
-        if indexPath.row < 10 {
+        if indexPath.row < 5 {
             return "MultiLineLabelCell"
         } else {
             return "MultipleMultiLineLabelCell"
@@ -89,9 +100,13 @@ class OneHundredRowsTableViewController: AutoLayoutTableViewController {
     override func cellContentForIndexPath(indexPath: NSIndexPath) -> [String : AnyObject]? {
         var content = [String : AnyObject]()
         
-        content.updateValue(self.cellContents[indexPath]!, forKey: UITableViewCellContentKey.textLabelText.rawValue)
-        content.updateValue(self.reversedCellContents[indexPath]!, forKey: "reversedText")
-
+        if let contents = self.cellContents[indexPath] {
+            content.updateValue(contents, forKey: UITableViewCellContentKey.textLabelText.rawValue)
+        }
+        if let reversedContents = self.reversedCellContents[indexPath] {
+            content.updateValue(reversedContents, forKey: "reversedText")
+        }
+        
         return content
     }
     

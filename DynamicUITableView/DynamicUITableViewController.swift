@@ -1,6 +1,6 @@
 //
-//  AutoLayoutTableViewController.swift
-//  AutoLayoutUITableView
+//  DynamicUITableViewController.swift
+//  Dynamic UITableView
 //
 //  Created by Joseph Duffy on 03/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class AutoLayoutTableViewController: UITableViewController {
-
+class DynamicUITableViewController: UITableViewController {
+    
     private lazy var isiOS8OrGreater: Bool = {
         return (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0
-    }()
+        }()
     
-    private var cachedClassesForCellReuseIdentifiers = [String : AutoLayoutTableViewCell.Type]()
-    private var offscreenCellRowsForReuseIdentifiers = [String : AutoLayoutTableViewCell]()
+    private var cachedClassesForCellReuseIdentifiers = [String : DynamicUITableViewCell.Type]()
+    private var offscreenCellRowsForReuseIdentifiers = [String : DynamicUITableViewCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,29 @@ class AutoLayoutTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !self.isiOS8OrGreater {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "contentSizeCategoryChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if !self.isiOS8OrGreater {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        }
+    }
+    
+    func contentSizeCategoryChanged(notification: NSNotification) {
+        self.tableView.reloadData()
+    }
+    
     // MARK:- Methods to call
     
     // Row Cells
     
-    func registerClass(cellClass: AutoLayoutTableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String) {
+    func registerClass(cellClass: DynamicUITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String) {
         self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] = cellClass
         self.tableView.registerClass(cellClass, forCellReuseIdentifier: reuseIdentifier)
     }
@@ -37,10 +55,10 @@ class AutoLayoutTableViewController: UITableViewController {
     // MARK:- Methods to be overridden
     
     // MARK: Row cells
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
-            if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? AutoLayoutTableViewCell {
+            if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? DynamicUITableViewCell {
                 if let cellContent = self.cellContentForIndexPath(indexPath) {
                     cell.configureForContent(cellContent)
                     
@@ -87,19 +105,18 @@ class AutoLayoutTableViewController: UITableViewController {
     :return: A nonnegative floating-point value that specifies the height (in points) that row should be.
     */
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if self.isiOS8OrGreater {
-            return UITableViewAutomaticDimension
-        } else {
-            if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
+        if !self.isiOS8OrGreater {
+            // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
+            // so we create an imutable NSIndexPath to be passed to the following methods
+            let imutableIndexPath = NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)
+            
+            if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(imutableIndexPath) {
                 if let cell = self.cellForReuseIdentifier(reuseIdentifier) {
-                    return cell.heightForContent(self.cellContentForIndexPath(indexPath), inTableView: tableView)
-                } else {
-                    return UITableViewAutomaticDimension
+                    return cell.heightForContent(self.cellContentForIndexPath(imutableIndexPath), inTableView: tableView)
                 }
-            } else {
-                return UITableViewAutomaticDimension
             }
         }
+        return UITableViewAutomaticDimension
     }
     
     /**
@@ -112,27 +129,28 @@ class AutoLayoutTableViewController: UITableViewController {
     
     :return: A nonnegative floating-point value that specifies the height (in points) that row should be.
     */
+    /*
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if self.isiOS8OrGreater {
-            return UITableViewAutomaticDimension
-        } else {
+        if !self.isiOS8OrGreater {
+            // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
+            // so we create an imutable NSIndexPath to be passed to the following methods
+            let imutableIndexPath = NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)
+    
             if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
                 if let cellType = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
                     return cellType.estimatedHeight()
-                } else {
-                    return UITableViewAutomaticDimension
                 }
-            } else {
-                return UITableViewAutomaticDimension
             }
         }
+        return UITableViewAutomaticDimension
     }
+    */
     
     // MARK:- Private methods
     
     // MARK: Cell rows
     
-    private func cellForReuseIdentifier(reuseIdentifier: String) -> AutoLayoutTableViewCell? {
+    private func cellForReuseIdentifier(reuseIdentifier: String) -> DynamicUITableViewCell? {
         if self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] == nil {
             if let cellClass = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
                 let cell = cellClass()

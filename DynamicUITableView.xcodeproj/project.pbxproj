@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		932080311A3096AD00D1D4C4 /* UITableViewCellContentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932080301A3096AD00D1D4C4 /* UITableViewCellContentKey.swift */; };
 		932080341A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932080331A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift */; };
+		935B72761A37196D00CF31A2 /* UITableViewCellWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B72751A37196D00CF31A2 /* UITableViewCellWithTextField.swift */; };
+		935B72781A37197400CF31A2 /* UITableViewCellAsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B72771A37197400CF31A2 /* UITableViewCellAsButton.swift */; };
+		935B727B1A371A4500CF31A2 /* DynamicFontLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B727A1A371A4500CF31A2 /* DynamicFontLabel.swift */; };
+		935B72861A371B3600CF31A2 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B727E1A371B3600CF31A2 /* ALView+PureLayout.m */; };
+		935B72871A371B3600CF31A2 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B72801A371B3600CF31A2 /* NSArray+PureLayout.m */; };
+		935B72881A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B72821A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m */; };
 		935C13691A31D7F6007F2430 /* SegmentedControlHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */; };
 		D97AA1201A2F93F30075A040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA11F1A2F93F30075A040 /* AppDelegate.swift */; };
 		D97AA1271A2F93F30075A040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97AA1261A2F93F30075A040 /* Images.xcassets */; };
-		D97AA1361A2F93F30075A040 /* AutoLayoutUITableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1351A2F93F30075A040 /* AutoLayoutUITableViewTests.swift */; };
-		D97AA1401A2F94110075A040 /* AutoLayoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA13F1A2F94110075A040 /* AutoLayoutTableViewController.swift */; };
-		D97AA1421A2F94800075A040 /* AutoLayoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1411A2F94800075A040 /* AutoLayoutTableViewCell.swift */; };
+		D97AA1361A2F93F30075A040 /* DynamicUITableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1351A2F93F30075A040 /* DynamicUITableViewTests.swift */; };
+		D97AA1401A2F94110075A040 /* DynamicUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA13F1A2F94110075A040 /* DynamicUITableViewController.swift */; };
+		D97AA1421A2F94800075A040 /* DynamicUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1411A2F94800075A040 /* DynamicUITableViewCell.swift */; };
 		D97AA1441A2FA28D0075A040 /* OneHundredRowsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */; };
 		D97AA1461A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1451A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -32,16 +38,29 @@
 /* Begin PBXFileReference section */
 		932080301A3096AD00D1D4C4 /* UITableViewCellContentKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellContentKey.swift; sourceTree = "<group>"; };
 		932080331A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleMultiLineLabelTableViewCell.swift; sourceTree = "<group>"; };
+		935B72751A37196D00CF31A2 /* UITableViewCellWithTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellWithTextField.swift; sourceTree = "<group>"; };
+		935B72771A37197400CF31A2 /* UITableViewCellAsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellAsButton.swift; sourceTree = "<group>"; };
+		935B727A1A371A4500CF31A2 /* DynamicFontLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFontLabel.swift; sourceTree = "<group>"; };
+		935B727D1A371B3600CF31A2 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
+		935B727E1A371B3600CF31A2 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
+		935B727F1A371B3600CF31A2 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		935B72801A371B3600CF31A2 /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		935B72811A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		935B72821A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		935B72831A371B3600CF31A2 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
+		935B72841A371B3600CF31A2 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
+		935B72851A371B3600CF31A2 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
+		935B728A1A371B6700CF31A2 /* Dynamic UITableView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dynamic UITableView-Bridging-Header.h"; sourceTree = "<group>"; };
 		935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlHeaderView.swift; sourceTree = "<group>"; };
-		D97AA11A1A2F93F30075A040 /* AutoLayoutUITableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutUITableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97AA11A1A2F93F30075A040 /* Dynamic UITableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dynamic UITableView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97AA11E1A2F93F30075A040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97AA11F1A2F93F30075A040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97AA1261A2F93F30075A040 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D97AA12F1A2F93F30075A040 /* AutoLayoutUITableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutUITableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97AA12F1A2F93F30075A040 /* Dynamic UITableView Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dynamic UITableView Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97AA1341A2F93F30075A040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D97AA1351A2F93F30075A040 /* AutoLayoutUITableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUITableViewTests.swift; sourceTree = "<group>"; };
-		D97AA13F1A2F94110075A040 /* AutoLayoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutTableViewController.swift; sourceTree = "<group>"; };
-		D97AA1411A2F94800075A040 /* AutoLayoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutTableViewCell.swift; sourceTree = "<group>"; };
+		D97AA1351A2F93F30075A040 /* DynamicUITableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicUITableViewTests.swift; sourceTree = "<group>"; };
+		D97AA13F1A2F94110075A040 /* DynamicUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicUITableViewController.swift; sourceTree = "<group>"; };
+		D97AA1411A2F94800075A040 /* DynamicUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicUITableViewCell.swift; sourceTree = "<group>"; };
 		D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneHundredRowsTableViewController.swift; sourceTree = "<group>"; };
 		D97AA1451A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,39 +83,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		932080321A30979900D1D4C4 /* Auto Layout Table */ = {
+		932080321A30979900D1D4C4 /* Dynamic UITableView */ = {
 			isa = PBXGroup;
 			children = (
-				D97AA13F1A2F94110075A040 /* AutoLayoutTableViewController.swift */,
-				935C13611A31CD39007F2430 /* Cell Rows */,
-			);
-			name = "Auto Layout Table";
-			sourceTree = "<group>";
-		};
-		932080371A30CB8900D1D4C4 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		932080381A30CDF400D1D4C4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				935C13671A31D7D3007F2430 /* Section Headers */,
-				935C13661A31D7CD007F2430 /* Cells */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		935C13611A31CD39007F2430 /* Cell Rows */ = {
-			isa = PBXGroup;
-			children = (
-				D97AA1411A2F94800075A040 /* AutoLayoutTableViewCell.swift */,
+				D97AA13F1A2F94110075A040 /* DynamicUITableViewController.swift */,
+				D97AA1411A2F94800075A040 /* DynamicUITableViewCell.swift */,
 				932080301A3096AD00D1D4C4 /* UITableViewCellContentKey.swift */,
 			);
-			name = "Cell Rows";
+			name = "Dynamic UITableView";
+			sourceTree = "<group>";
+		};
+		935B72731A37194200CF31A2 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				D97AA11F1A2F93F30075A040 /* AppDelegate.swift */,
+				935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */,
+				935C13661A31D7CD007F2430 /* Cells */,
+				D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */,
+			);
+			name = Example;
+			sourceTree = "<group>";
+		};
+		935B72741A37194F00CF31A2 /* Dynamic Views */ = {
+			isa = PBXGroup;
+			children = (
+				935B727A1A371A4500CF31A2 /* DynamicFontLabel.swift */,
+				935B72791A371A3600CF31A2 /* UITableViewCells */,
+			);
+			name = "Dynamic Views";
+			sourceTree = "<group>";
+		};
+		935B72791A371A3600CF31A2 /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				935B72771A37197400CF31A2 /* UITableViewCellAsButton.swift */,
+				935B72751A37196D00CF31A2 /* UITableViewCellWithTextField.swift */,
+			);
+			name = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		935B727C1A371B3600CF31A2 /* Pure Layout */ = {
+			isa = PBXGroup;
+			children = (
+				935B727D1A371B3600CF31A2 /* ALView+PureLayout.h */,
+				935B727E1A371B3600CF31A2 /* ALView+PureLayout.m */,
+				935B727F1A371B3600CF31A2 /* NSArray+PureLayout.h */,
+				935B72801A371B3600CF31A2 /* NSArray+PureLayout.m */,
+				935B72811A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.h */,
+				935B72821A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m */,
+				935B72831A371B3600CF31A2 /* PureLayout+Internal.h */,
+				935B72841A371B3600CF31A2 /* PureLayout.h */,
+				935B72851A371B3600CF31A2 /* PureLayoutDefines.h */,
+			);
+			name = "Pure Layout";
+			path = Source;
 			sourceTree = "<group>";
 		};
 		935C13661A31D7CD007F2430 /* Cells */ = {
@@ -108,19 +148,11 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		935C13671A31D7D3007F2430 /* Section Headers */ = {
-			isa = PBXGroup;
-			children = (
-				935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */,
-			);
-			name = "Section Headers";
-			sourceTree = "<group>";
-		};
 		D97AA1111A2F93F30075A040 = {
 			isa = PBXGroup;
 			children = (
-				D97AA11C1A2F93F30075A040 /* AutoLayoutUITableView */,
-				D97AA1321A2F93F30075A040 /* AutoLayoutUITableViewTests */,
+				D97AA11C1A2F93F30075A040 /* DynamicUITableView */,
+				D97AA1321A2F93F30075A040 /* DynamicUITableViewTests */,
 				D97AA11B1A2F93F30075A040 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,40 +160,41 @@
 		D97AA11B1A2F93F30075A040 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D97AA11A1A2F93F30075A040 /* AutoLayoutUITableView.app */,
-				D97AA12F1A2F93F30075A040 /* AutoLayoutUITableViewTests.xctest */,
+				D97AA11A1A2F93F30075A040 /* Dynamic UITableView.app */,
+				D97AA12F1A2F93F30075A040 /* Dynamic UITableView Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D97AA11C1A2F93F30075A040 /* AutoLayoutUITableView */ = {
+		D97AA11C1A2F93F30075A040 /* DynamicUITableView */ = {
 			isa = PBXGroup;
 			children = (
-				D97AA11F1A2F93F30075A040 /* AppDelegate.swift */,
-				932080381A30CDF400D1D4C4 /* Views */,
-				932080371A30CB8900D1D4C4 /* Controllers */,
-				932080321A30979900D1D4C4 /* Auto Layout Table */,
+				935B72731A37194200CF31A2 /* Example */,
+				935B72741A37194F00CF31A2 /* Dynamic Views */,
+				932080321A30979900D1D4C4 /* Dynamic UITableView */,
+				935B727C1A371B3600CF31A2 /* Pure Layout */,
 				D97AA1261A2F93F30075A040 /* Images.xcassets */,
 				D97AA11D1A2F93F30075A040 /* Supporting Files */,
 			);
-			path = AutoLayoutUITableView;
+			path = DynamicUITableView;
 			sourceTree = "<group>";
 		};
 		D97AA11D1A2F93F30075A040 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				935B728A1A371B6700CF31A2 /* Dynamic UITableView-Bridging-Header.h */,
 				D97AA11E1A2F93F30075A040 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D97AA1321A2F93F30075A040 /* AutoLayoutUITableViewTests */ = {
+		D97AA1321A2F93F30075A040 /* DynamicUITableViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				D97AA1351A2F93F30075A040 /* AutoLayoutUITableViewTests.swift */,
+				D97AA1351A2F93F30075A040 /* DynamicUITableViewTests.swift */,
 				D97AA1331A2F93F30075A040 /* Supporting Files */,
 			);
-			path = AutoLayoutUITableViewTests;
+			path = DynamicUITableViewTests;
 			sourceTree = "<group>";
 		};
 		D97AA1331A2F93F30075A040 /* Supporting Files */ = {
@@ -175,9 +208,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D97AA1191A2F93F30075A040 /* AutoLayoutUITableView */ = {
+		D97AA1191A2F93F30075A040 /* Dynamic UITableView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "AutoLayoutUITableView" */;
+			buildConfigurationList = D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableView" */;
 			buildPhases = (
 				D97AA1161A2F93F30075A040 /* Sources */,
 				D97AA1171A2F93F30075A040 /* Frameworks */,
@@ -187,14 +220,14 @@
 			);
 			dependencies = (
 			);
-			name = AutoLayoutUITableView;
-			productName = AutoLayoutUITableView;
-			productReference = D97AA11A1A2F93F30075A040 /* AutoLayoutUITableView.app */;
+			name = "Dynamic UITableView";
+			productName = "Dynamic UITableView";
+			productReference = D97AA11A1A2F93F30075A040 /* Dynamic UITableView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D97AA12E1A2F93F30075A040 /* AutoLayoutUITableViewTests */ = {
+		D97AA12E1A2F93F30075A040 /* Dynamic UITableViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "AutoLayoutUITableViewTests" */;
+			buildConfigurationList = D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableViewTests" */;
 			buildPhases = (
 				D97AA12B1A2F93F30075A040 /* Sources */,
 				D97AA12C1A2F93F30075A040 /* Frameworks */,
@@ -205,9 +238,9 @@
 			dependencies = (
 				D97AA1311A2F93F30075A040 /* PBXTargetDependency */,
 			);
-			name = AutoLayoutUITableViewTests;
-			productName = AutoLayoutUITableViewTests;
-			productReference = D97AA12F1A2F93F30075A040 /* AutoLayoutUITableViewTests.xctest */;
+			name = "Dynamic UITableViewTests";
+			productName = "Dynamic UITableView Tests";
+			productReference = D97AA12F1A2F93F30075A040 /* Dynamic UITableView Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -228,7 +261,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "AutoLayoutUITableView" */;
+			buildConfigurationList = D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "DynamicUITableView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -241,8 +274,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D97AA1191A2F93F30075A040 /* AutoLayoutUITableView */,
-				D97AA12E1A2F93F30075A040 /* AutoLayoutUITableViewTests */,
+				D97AA1191A2F93F30075A040 /* Dynamic UITableView */,
+				D97AA12E1A2F93F30075A040 /* Dynamic UITableViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,13 +304,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97AA1461A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift in Sources */,
-				D97AA1401A2F94110075A040 /* AutoLayoutTableViewController.swift in Sources */,
+				D97AA1401A2F94110075A040 /* DynamicUITableViewController.swift in Sources */,
 				932080311A3096AD00D1D4C4 /* UITableViewCellContentKey.swift in Sources */,
-				D97AA1421A2F94800075A040 /* AutoLayoutTableViewCell.swift in Sources */,
+				935B72781A37197400CF31A2 /* UITableViewCellAsButton.swift in Sources */,
+				D97AA1421A2F94800075A040 /* DynamicUITableViewCell.swift in Sources */,
 				D97AA1441A2FA28D0075A040 /* OneHundredRowsTableViewController.swift in Sources */,
 				932080341A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift in Sources */,
+				935B72881A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m in Sources */,
+				935B72861A371B3600CF31A2 /* ALView+PureLayout.m in Sources */,
 				935C13691A31D7F6007F2430 /* SegmentedControlHeaderView.swift in Sources */,
+				935B72761A37196D00CF31A2 /* UITableViewCellWithTextField.swift in Sources */,
 				D97AA1201A2F93F30075A040 /* AppDelegate.swift in Sources */,
+				935B72871A371B3600CF31A2 /* NSArray+PureLayout.m in Sources */,
+				935B727B1A371A4500CF31A2 /* DynamicFontLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D97AA1361A2F93F30075A040 /* AutoLayoutUITableViewTests.swift in Sources */,
+				D97AA1361A2F93F30075A040 /* DynamicUITableViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +333,7 @@
 /* Begin PBXTargetDependency section */
 		D97AA1311A2F93F30075A040 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D97AA1191A2F93F30075A040 /* AutoLayoutUITableView */;
+			target = D97AA1191A2F93F30075A040 /* Dynamic UITableView */;
 			targetProxy = D97AA1301A2F93F30075A040 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -338,7 +377,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/DynamicUITableView/Dynamic UITableView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -375,7 +414,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/DynamicUITableView/Dynamic UITableView-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -385,9 +424,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AutoLayoutUITableView/Info.plist;
+				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dynamic UITableView";
 			};
 			name = Debug;
 		};
@@ -395,9 +434,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AutoLayoutUITableView/Info.plist;
+				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dynamic UITableView";
 			};
 			name = Release;
 		};
@@ -413,10 +452,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AutoLayoutUITableViewTests/Info.plist;
+				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoLayoutUITableView.app/AutoLayoutUITableView";
+				PRODUCT_NAME = "Dynamic UITableView Tests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dynamic UITableView.app/Dynamic UITableView";
 			};
 			name = Debug;
 		};
@@ -428,17 +467,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AutoLayoutUITableViewTests/Info.plist;
+				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoLayoutUITableView.app/AutoLayoutUITableView";
+				PRODUCT_NAME = "Dynamic UITableView Tests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dynamic UITableView.app/Dynamic UITableView";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "AutoLayoutUITableView" */ = {
+		D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "DynamicUITableView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D97AA1371A2F93F30075A040 /* Debug */,
@@ -447,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "AutoLayoutUITableView" */ = {
+		D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D97AA13A1A2F93F30075A040 /* Debug */,
@@ -456,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "AutoLayoutUITableViewTests" */ = {
+		D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableViewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D97AA13D1A2F93F30075A040 /* Debug */,

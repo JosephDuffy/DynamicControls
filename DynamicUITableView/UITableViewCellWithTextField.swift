@@ -1,6 +1,6 @@
 //
 //  UITableViewCellWithTextField.swift
-//  Dynamic UITableView
+//  DynamicUITableView
 //
 //  Created by Joseph Duffy on 04/11/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.

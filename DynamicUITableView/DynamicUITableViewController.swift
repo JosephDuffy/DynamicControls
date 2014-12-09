@@ -1,6 +1,6 @@
 //
 //  DynamicUITableViewController.swift
-//  Dynamic UITableView
+//  DynamicUITableView
 //
 //  Created by Joseph Duffy on 03/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -40,6 +40,7 @@ class DynamicUITableViewController: UITableViewController {
     }
     
     func contentSizeCategoryChanged(notification: NSNotification) {
+        // TODO: This doesn't always seem to force cell height changes?
         self.tableView.reloadData()
     }
     

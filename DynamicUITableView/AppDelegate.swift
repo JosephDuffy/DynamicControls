@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Dynamic UITableView
+//  DynamicUITableView
 //
 //  Created by Joseph Duffy on 03/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -12,22 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow!
+    var exampleTableNavigationController: UINavigationController!
     var groupedTableNavigationController: UINavigationController!
-    var plainTableNavigationController: UINavigationController!
     var tabBarController: UITabBarController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        let examplesTableViewController = ExampleDynamicUITableViewController(style: .Grouped)
+        self.exampleTableNavigationController = UINavigationController(rootViewController: examplesTableViewController)
+        
         let groupedTableViewController = OneHundredRowsTableViewController(style: .Grouped)
         self.groupedTableNavigationController = UINavigationController(rootViewController: groupedTableViewController)
-
-        let plainTableViewController = OneHundredRowsTableViewController(style: .Plain)
-        self.plainTableNavigationController = UINavigationController(rootViewController: plainTableViewController)
         
         self.tabBarController = UITabBarController()
+        self.tabBarController.addChildViewController(self.exampleTableNavigationController)
         self.tabBarController.addChildViewController(self.groupedTableNavigationController)
-        self.tabBarController.addChildViewController(self.plainTableNavigationController)
         
         self.window.rootViewController = self.tabBarController
         self.window.makeKeyAndVisible()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9314D4721A3750BC00BC203F /* ExampleDynamicUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314D4711A3750BC00BC203F /* ExampleDynamicUITableViewController.swift */; };
 		932080311A3096AD00D1D4C4 /* UITableViewCellContentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932080301A3096AD00D1D4C4 /* UITableViewCellContentKey.swift */; };
 		932080341A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932080331A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift */; };
 		935B72761A37196D00CF31A2 /* UITableViewCellWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B72751A37196D00CF31A2 /* UITableViewCellWithTextField.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9314D4711A3750BC00BC203F /* ExampleDynamicUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDynamicUITableViewController.swift; sourceTree = "<group>"; };
 		932080301A3096AD00D1D4C4 /* UITableViewCellContentKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellContentKey.swift; sourceTree = "<group>"; };
 		932080331A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleMultiLineLabelTableViewCell.swift; sourceTree = "<group>"; };
 		935B72751A37196D00CF31A2 /* UITableViewCellWithTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellWithTextField.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */,
 				935C13661A31D7CD007F2430 /* Cells */,
 				D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */,
+				9314D4711A3750BC00BC203F /* ExampleDynamicUITableViewController.swift */,
 			);
 			name = Example;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				935B72761A37196D00CF31A2 /* UITableViewCellWithTextField.swift in Sources */,
 				D97AA1201A2F93F30075A040 /* AppDelegate.swift in Sources */,
 				935B72871A371B3600CF31A2 /* NSArray+PureLayout.m in Sources */,
+				9314D4721A3750BC00BC203F /* ExampleDynamicUITableViewController.swift in Sources */,
 				935B727B1A371A4500CF31A2 /* DynamicFontLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,6 @@
 //
 //  SegmentedControlHeaderView.swift
-//  Dynamic UITableView
+//  DynamicUITableView
 //
 //  Created by Joseph Duffy on 05/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.

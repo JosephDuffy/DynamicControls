@@ -20,9 +20,11 @@ class UITableViewCellAsButton: DynamicUITableViewCell {
             if self.enabled == true {
                 self.label.textColor = self.tintColor
                 self.label.alpha = 1
+                self.selectionStyle = .Default
             } else {
                 self.label.textColor = UIColor.grayColor()
                 self.label.alpha = 0.7
+                self.selectionStyle = .None
             }
         }
     }
@@ -30,7 +32,6 @@ class UITableViewCellAsButton: DynamicUITableViewCell {
 
     override func setup() {
         self.label = DynamicFontLabel()
-//        self.label = UILabel()
         self.label.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.label.textAlignment = .Center
         

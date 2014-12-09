@@ -24,7 +24,6 @@ class UITableViewCellWithTextField: DynamicUITableViewCell {
         self.selectionStyle = .None
         
         self.label = DynamicFontLabel()
-//        self.label = UILabel()
         self.label.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         self.textField = UITextField()

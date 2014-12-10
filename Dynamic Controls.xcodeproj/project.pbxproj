@@ -16,12 +16,15 @@
 		935B72861A371B3600CF31A2 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B727E1A371B3600CF31A2 /* ALView+PureLayout.m */; };
 		935B72871A371B3600CF31A2 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B72801A371B3600CF31A2 /* NSArray+PureLayout.m */; };
 		935B72881A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B72821A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m */; };
-		935C13691A31D7F6007F2430 /* SegmentedControlHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */; };
+		93BD90BC1A386C1F00E40177 /* DynamicTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD90BB1A386C1F00E40177 /* DynamicTableViewHeaderFooterView.swift */; };
+		93BD90BF1A3872FA00E40177 /* SegmentedControlTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD90BE1A3872FA00E40177 /* SegmentedControlTableHeaderFooterView.swift */; };
+		93BD90C21A38731100E40177 /* DynamicFontSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD90C01A38731100E40177 /* DynamicFontSegmentedControl.swift */; };
+		93BD90C31A38731100E40177 /* DynamicFontTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD90C11A38731100E40177 /* DynamicFontTextField.swift */; };
 		D97AA1201A2F93F30075A040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA11F1A2F93F30075A040 /* AppDelegate.swift */; };
 		D97AA1271A2F93F30075A040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97AA1261A2F93F30075A040 /* Images.xcassets */; };
-		D97AA1361A2F93F30075A040 /* DynamicUITableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1351A2F93F30075A040 /* DynamicUITableViewTests.swift */; };
-		D97AA1401A2F94110075A040 /* DynamicUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA13F1A2F94110075A040 /* DynamicUITableViewController.swift */; };
-		D97AA1421A2F94800075A040 /* DynamicUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1411A2F94800075A040 /* DynamicUITableViewCell.swift */; };
+		D97AA1361A2F93F30075A040 /* DynamicControlsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1351A2F93F30075A040 /* DynamicControlsTests.swift */; };
+		D97AA1401A2F94110075A040 /* DynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA13F1A2F94110075A040 /* DynamicTableViewController.swift */; };
+		D97AA1421A2F94800075A040 /* DynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1411A2F94800075A040 /* DynamicTableViewCell.swift */; };
 		D97AA1441A2FA28D0075A040 /* OneHundredRowsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */; };
 		D97AA1461A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AA1451A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -53,16 +56,19 @@
 		935B72841A371B3600CF31A2 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		935B72851A371B3600CF31A2 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 		935B728A1A371B6700CF31A2 /* Dynamic UITableView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dynamic UITableView-Bridging-Header.h"; sourceTree = "<group>"; };
-		935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlHeaderView.swift; sourceTree = "<group>"; };
-		D97AA11A1A2F93F30075A040 /* Dynamic UITableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dynamic UITableView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93BD90BB1A386C1F00E40177 /* DynamicTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		93BD90BE1A3872FA00E40177 /* SegmentedControlTableHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlTableHeaderFooterView.swift; sourceTree = "<group>"; };
+		93BD90C01A38731100E40177 /* DynamicFontSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFontSegmentedControl.swift; sourceTree = "<group>"; };
+		93BD90C11A38731100E40177 /* DynamicFontTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFontTextField.swift; sourceTree = "<group>"; };
+		D97AA11A1A2F93F30075A040 /* Dynamic Controls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dynamic Controls.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97AA11E1A2F93F30075A040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97AA11F1A2F93F30075A040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97AA1261A2F93F30075A040 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D97AA12F1A2F93F30075A040 /* Dynamic UITableView Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dynamic UITableView Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97AA12F1A2F93F30075A040 /* Dynamic Controls Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dynamic Controls Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97AA1341A2F93F30075A040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D97AA1351A2F93F30075A040 /* DynamicUITableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicUITableViewTests.swift; sourceTree = "<group>"; };
-		D97AA13F1A2F94110075A040 /* DynamicUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicUITableViewController.swift; sourceTree = "<group>"; };
-		D97AA1411A2F94800075A040 /* DynamicUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicUITableViewCell.swift; sourceTree = "<group>"; };
+		D97AA1351A2F93F30075A040 /* DynamicControlsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicControlsTests.swift; sourceTree = "<group>"; };
+		D97AA13F1A2F94110075A040 /* DynamicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableViewController.swift; sourceTree = "<group>"; };
+		D97AA1411A2F94800075A040 /* DynamicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableViewCell.swift; sourceTree = "<group>"; };
 		D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneHundredRowsTableViewController.swift; sourceTree = "<group>"; };
 		D97AA1451A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,29 +94,30 @@
 		932080321A30979900D1D4C4 /* Dynamic UITableView */ = {
 			isa = PBXGroup;
 			children = (
-				D97AA13F1A2F94110075A040 /* DynamicUITableViewController.swift */,
-				D97AA1411A2F94800075A040 /* DynamicUITableViewCell.swift */,
+				D97AA13F1A2F94110075A040 /* DynamicTableViewController.swift */,
+				D97AA1411A2F94800075A040 /* DynamicTableViewCell.swift */,
+				93BD90BB1A386C1F00E40177 /* DynamicTableViewHeaderFooterView.swift */,
 				932080301A3096AD00D1D4C4 /* UITableViewCellContentKey.swift */,
 			);
 			name = "Dynamic UITableView";
 			sourceTree = "<group>";
 		};
-		935B72731A37194200CF31A2 /* Example */ = {
+		935B72731A37194200CF31A2 /* Example App */ = {
 			isa = PBXGroup;
 			children = (
 				D97AA11F1A2F93F30075A040 /* AppDelegate.swift */,
-				935C13681A31D7F6007F2430 /* SegmentedControlHeaderView.swift */,
 				935C13661A31D7CD007F2430 /* Cells */,
 				D97AA1431A2FA28D0075A040 /* OneHundredRowsTableViewController.swift */,
 				9314D4711A3750BC00BC203F /* ExampleDynamicUITableViewController.swift */,
 			);
-			name = Example;
+			name = "Example App";
 			sourceTree = "<group>";
 		};
 		935B72741A37194F00CF31A2 /* Dynamic Views */ = {
 			isa = PBXGroup;
 			children = (
-				935B727A1A371A4500CF31A2 /* DynamicFontLabel.swift */,
+				93BD90BE1A3872FA00E40177 /* SegmentedControlTableHeaderFooterView.swift */,
+				93BD90BD1A386C4600E40177 /* Dynamic Font UIKit Views */,
 				935B72791A371A3600CF31A2 /* UITableViewCells */,
 			);
 			name = "Dynamic Views";
@@ -151,11 +158,21 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		93BD90BD1A386C4600E40177 /* Dynamic Font UIKit Views */ = {
+			isa = PBXGroup;
+			children = (
+				935B727A1A371A4500CF31A2 /* DynamicFontLabel.swift */,
+				93BD90C01A38731100E40177 /* DynamicFontSegmentedControl.swift */,
+				93BD90C11A38731100E40177 /* DynamicFontTextField.swift */,
+			);
+			name = "Dynamic Font UIKit Views";
+			sourceTree = "<group>";
+		};
 		D97AA1111A2F93F30075A040 = {
 			isa = PBXGroup;
 			children = (
-				D97AA11C1A2F93F30075A040 /* DynamicUITableView */,
-				D97AA1321A2F93F30075A040 /* DynamicUITableViewTests */,
+				D97AA11C1A2F93F30075A040 /* Dynamic Controls */,
+				D97AA1321A2F93F30075A040 /* Dynamic Controls Tests */,
 				D97AA11B1A2F93F30075A040 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,22 +180,23 @@
 		D97AA11B1A2F93F30075A040 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D97AA11A1A2F93F30075A040 /* Dynamic UITableView.app */,
-				D97AA12F1A2F93F30075A040 /* Dynamic UITableView Tests.xctest */,
+				D97AA11A1A2F93F30075A040 /* Dynamic Controls.app */,
+				D97AA12F1A2F93F30075A040 /* Dynamic Controls Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D97AA11C1A2F93F30075A040 /* DynamicUITableView */ = {
+		D97AA11C1A2F93F30075A040 /* Dynamic Controls */ = {
 			isa = PBXGroup;
 			children = (
-				935B72731A37194200CF31A2 /* Example */,
+				935B72731A37194200CF31A2 /* Example App */,
 				935B72741A37194F00CF31A2 /* Dynamic Views */,
 				932080321A30979900D1D4C4 /* Dynamic UITableView */,
 				935B727C1A371B3600CF31A2 /* Pure Layout */,
 				D97AA1261A2F93F30075A040 /* Images.xcassets */,
 				D97AA11D1A2F93F30075A040 /* Supporting Files */,
 			);
+			name = "Dynamic Controls";
 			path = DynamicUITableView;
 			sourceTree = "<group>";
 		};
@@ -191,12 +209,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D97AA1321A2F93F30075A040 /* DynamicUITableViewTests */ = {
+		D97AA1321A2F93F30075A040 /* Dynamic Controls Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D97AA1351A2F93F30075A040 /* DynamicUITableViewTests.swift */,
+				D97AA1351A2F93F30075A040 /* DynamicControlsTests.swift */,
 				D97AA1331A2F93F30075A040 /* Supporting Files */,
 			);
+			name = "Dynamic Controls Tests";
 			path = DynamicUITableViewTests;
 			sourceTree = "<group>";
 		};
@@ -211,9 +230,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D97AA1191A2F93F30075A040 /* Dynamic UITableView */ = {
+		D97AA1191A2F93F30075A040 /* Dynamic Controls */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableView" */;
+			buildConfigurationList = D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic Controls" */;
 			buildPhases = (
 				D97AA1161A2F93F30075A040 /* Sources */,
 				D97AA1171A2F93F30075A040 /* Frameworks */,
@@ -223,14 +242,14 @@
 			);
 			dependencies = (
 			);
-			name = "Dynamic UITableView";
+			name = "Dynamic Controls";
 			productName = "Dynamic UITableView";
-			productReference = D97AA11A1A2F93F30075A040 /* Dynamic UITableView.app */;
+			productReference = D97AA11A1A2F93F30075A040 /* Dynamic Controls.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D97AA12E1A2F93F30075A040 /* Dynamic UITableViewTests */ = {
+		D97AA12E1A2F93F30075A040 /* Dynamic Controls Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableViewTests" */;
+			buildConfigurationList = D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic Controls Tests" */;
 			buildPhases = (
 				D97AA12B1A2F93F30075A040 /* Sources */,
 				D97AA12C1A2F93F30075A040 /* Frameworks */,
@@ -241,9 +260,9 @@
 			dependencies = (
 				D97AA1311A2F93F30075A040 /* PBXTargetDependency */,
 			);
-			name = "Dynamic UITableViewTests";
+			name = "Dynamic Controls Tests";
 			productName = "Dynamic UITableView Tests";
-			productReference = D97AA12F1A2F93F30075A040 /* Dynamic UITableView Tests.xctest */;
+			productReference = D97AA12F1A2F93F30075A040 /* Dynamic Controls Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +283,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "DynamicUITableView" */;
+			buildConfigurationList = D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "Dynamic Controls" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -277,8 +296,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D97AA1191A2F93F30075A040 /* Dynamic UITableView */,
-				D97AA12E1A2F93F30075A040 /* Dynamic UITableViewTests */,
+				D97AA1191A2F93F30075A040 /* Dynamic Controls */,
+				D97AA12E1A2F93F30075A040 /* Dynamic Controls Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -307,19 +326,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97AA1461A2FA2F80075A040 /* MultiLineLabelTableViewCell.swift in Sources */,
-				D97AA1401A2F94110075A040 /* DynamicUITableViewController.swift in Sources */,
+				D97AA1401A2F94110075A040 /* DynamicTableViewController.swift in Sources */,
 				932080311A3096AD00D1D4C4 /* UITableViewCellContentKey.swift in Sources */,
 				935B72781A37197400CF31A2 /* UITableViewCellAsButton.swift in Sources */,
-				D97AA1421A2F94800075A040 /* DynamicUITableViewCell.swift in Sources */,
+				D97AA1421A2F94800075A040 /* DynamicTableViewCell.swift in Sources */,
 				D97AA1441A2FA28D0075A040 /* OneHundredRowsTableViewController.swift in Sources */,
 				932080341A30BBBB00D1D4C4 /* MultipleMultiLineLabelTableViewCell.swift in Sources */,
 				935B72881A371B3600CF31A2 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				935B72861A371B3600CF31A2 /* ALView+PureLayout.m in Sources */,
-				935C13691A31D7F6007F2430 /* SegmentedControlHeaderView.swift in Sources */,
 				935B72761A37196D00CF31A2 /* UITableViewCellWithTextField.swift in Sources */,
+				93BD90C31A38731100E40177 /* DynamicFontTextField.swift in Sources */,
+				93BD90C21A38731100E40177 /* DynamicFontSegmentedControl.swift in Sources */,
 				D97AA1201A2F93F30075A040 /* AppDelegate.swift in Sources */,
+				93BD90BC1A386C1F00E40177 /* DynamicTableViewHeaderFooterView.swift in Sources */,
 				935B72871A371B3600CF31A2 /* NSArray+PureLayout.m in Sources */,
 				9314D4721A3750BC00BC203F /* ExampleDynamicUITableViewController.swift in Sources */,
+				93BD90BF1A3872FA00E40177 /* SegmentedControlTableHeaderFooterView.swift in Sources */,
 				935B727B1A371A4500CF31A2 /* DynamicFontLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D97AA1361A2F93F30075A040 /* DynamicUITableViewTests.swift in Sources */,
+				D97AA1361A2F93F30075A040 /* DynamicControlsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +359,7 @@
 /* Begin PBXTargetDependency section */
 		D97AA1311A2F93F30075A040 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D97AA1191A2F93F30075A040 /* Dynamic UITableView */;
+			target = D97AA1191A2F93F30075A040 /* Dynamic Controls */;
 			targetProxy = D97AA1301A2F93F30075A040 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -430,7 +452,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Dynamic UITableView";
+				PRODUCT_NAME = "Dynamic Controls";
 			};
 			name = Debug;
 		};
@@ -440,7 +462,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Dynamic UITableView";
+				PRODUCT_NAME = "Dynamic Controls";
 			};
 			name = Release;
 		};
@@ -458,8 +480,8 @@
 				);
 				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "Dynamic UITableView Tests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dynamic UITableView.app/Dynamic UITableView";
+				PRODUCT_NAME = "Dynamic Controls Tests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dynamic Controls.app/Dynamic Controls";
 			};
 			name = Debug;
 		};
@@ -473,15 +495,15 @@
 				);
 				INFOPLIST_FILE = DynamicUITableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "Dynamic UITableView Tests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dynamic UITableView.app/Dynamic UITableView";
+				PRODUCT_NAME = "Dynamic Controls Tests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dynamic Controls.app/Dynamic Controls";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "DynamicUITableView" */ = {
+		D97AA1151A2F93F30075A040 /* Build configuration list for PBXProject "Dynamic Controls" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D97AA1371A2F93F30075A040 /* Debug */,
@@ -490,7 +512,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableView" */ = {
+		D97AA1391A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic Controls" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D97AA13A1A2F93F30075A040 /* Debug */,
@@ -499,7 +521,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic UITableViewTests" */ = {
+		D97AA13C1A2F93F30075A040 /* Build configuration list for PBXNativeTarget "Dynamic Controls Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D97AA13D1A2F93F30075A040 /* Debug */,

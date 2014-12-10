@@ -1,6 +1,6 @@
 //
-//  DynamicUITableViewCell.swift
-//  DynamicUITableView
+//  DynamicTableViewCell.swift
+//  Dynamic Controls
 //
 //  Created by Joseph Duffy on 03/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DynamicUITableViewCell: UITableViewCell {
+class DynamicTableViewCell: UITableViewCell {
     
     class func estimatedHeight() -> CGFloat {
         return UITableViewAutomaticDimension

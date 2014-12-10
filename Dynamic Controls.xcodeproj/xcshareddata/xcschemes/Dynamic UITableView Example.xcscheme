@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "Dynamic UITableView.app"
-            BlueprintName = "Dynamic UITableView"
-            ReferencedContainer = "container:DynamicUITableView.xcodeproj">
+            BuildableName = "Dynamic Controls.app"
+            BlueprintName = "Dynamic Controls"
+            ReferencedContainer = "container:Dynamic Controls.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "Dynamic UITableView.app"
-            BlueprintName = "Dynamic UITableView"
-            ReferencedContainer = "container:DynamicUITableView.xcodeproj">
+            BuildableName = "Dynamic Controls.app"
+            BlueprintName = "Dynamic Controls"
+            ReferencedContainer = "container:Dynamic Controls.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

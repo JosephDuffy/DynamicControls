@@ -1,6 +1,6 @@
 //
 //  ExampleDynamicUITableViewController.swift
-//  DynamicUITableView
+//  Dynamic Controls
 //
 //  Created by Joseph Duffy on 09/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExampleDynamicUITableViewController: DynamicUITableViewController, UITextFieldDelegate {
+class ExampleDynamicUITableViewController: DynamicTableViewController, UITextFieldDelegate {
    
     private var email: String!
     private var password: String!
@@ -31,6 +31,7 @@ class ExampleDynamicUITableViewController: DynamicUITableViewController, UITextF
         
         self.registerClass(UITableViewCellWithTextField.self, forCellReuseIdentifier: "CellWithTextField")
         self.registerClass(UITableViewCellAsButton.self, forCellReuseIdentifier: "CellAsButton")
+        self.registerClass(SegmentedControlTableHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "SegmentedControlTableHeaderFooterView")
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -125,5 +126,27 @@ class ExampleDynamicUITableViewController: DynamicUITableViewController, UITextF
         default:
             break
         }
+    }
+    
+    override func footerViewReuseIdentifierForSection(section: Int) -> String? {
+        if section == 0 {
+            return "SegmentedControlTableHeaderFooterView"
+        }
+        return super.footerViewReuseIdentifierForSection(section)
+    }
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            let footerView = super.tableView(tableView, viewForFooterInSection: section) as SegmentedControlTableHeaderFooterView
+            if footerView.segmentedControl.numberOfSegments == 0 {
+                footerView.segmentedControl.insertSegmentWithTitle("Login", atIndex: 0, animated: false)
+                footerView.segmentedControl.insertSegmentWithTitle("Register", atIndex: 1, animated: false)
+                
+                footerView.setNeedsUpdateConstraints()
+                footerView.updateConstraintsIfNeeded()
+            }
+            return footerView
+        }
+        return nil
     }
 }

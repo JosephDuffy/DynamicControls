@@ -1,6 +1,6 @@
 //
-//  DynamicUITableViewTests.swift
-//  DynamicUITableViewTests
+//  DynamicControlsTests.swift
+//  Dynamic Controls Tests
 //
 //  Created by Joseph Duffy on 03/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class DynamicUITableViewTests: XCTestCase {
+class DynamicControlsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UITableViewCellAsButton: DynamicUITableViewCell {
+class UITableViewCellAsButton: DynamicTableViewCell {
     private var label: DynamicFontLabel!
     override var textLabel: DynamicFontLabel {
         get {

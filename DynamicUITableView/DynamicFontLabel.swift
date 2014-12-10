@@ -1,6 +1,6 @@
 //
-//  AutoLayoutLabel.swift
-//  DynamicUITableView
+//  DynamicFontLabel.swift
+//  Dynamic Controls
 //
 //  Created by Joseph Duffy on 16/09/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.

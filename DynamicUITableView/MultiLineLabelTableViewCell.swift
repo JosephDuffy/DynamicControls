@@ -1,6 +1,6 @@
 //
 //  MultiLineLabelTableViewCell.swift
-//  DynamicUITableView
+//  Dynamic Controls
 //
 //  Created by Joseph Duffy on 03/12/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MultiLineLabelTableViewCell: DynamicUITableViewCell {
+class MultiLineLabelTableViewCell: DynamicTableViewCell {
 
     var multiLineLabel: UILabel!
     override var textLabel: UILabel {

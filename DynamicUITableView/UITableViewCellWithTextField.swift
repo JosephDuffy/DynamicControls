@@ -8,10 +8,10 @@
 
 import UIKit
 
-class UITableViewCellWithTextField: DynamicUITableViewCell {
+class UITableViewCellWithTextField: DynamicTableViewCell {
     
     private var label: DynamicFontLabel!
-    private(set) var textField: UITextField!
+    private(set) var textField: DynamicFontTextField!
     override var textLabel: UILabel {
         get {
             return self.label
@@ -26,7 +26,7 @@ class UITableViewCellWithTextField: DynamicUITableViewCell {
         self.label = DynamicFontLabel()
         self.label.setTranslatesAutoresizingMaskIntoConstraints(false)
         
-        self.textField = UITextField()
+        self.textField = DynamicFontTextField()
         self.textField.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.textField.borderStyle = .None
         self.textField.textAlignment = .Right

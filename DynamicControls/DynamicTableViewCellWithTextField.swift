@@ -1,6 +1,6 @@
 //
-//  UITableViewCellWithTextField.swift
-//  DynamicUITableView
+//  DynamicTableViewCellWithTextField.swift
+//  Dynamic Controls
 //
 //  Created by Joseph Duffy on 04/11/2014.
 //  Copyright (c) 2014 Yetii Ltd. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class UITableViewCellWithTextField: DynamicTableViewCell {
+public class DynamicTableViewCellWithTextField: DynamicTableViewCell {
     
     private var label: DynamicTypeLabel!
     private(set) public var textField: DynamicTypeTextField!
@@ -39,12 +39,11 @@ public class UITableViewCellWithTextField: DynamicTableViewCell {
     
     private func addConstraints() {
         self.contentView.addConstraints([
+            // Label constraints
             NSLayoutConstraint(item: self.label, attribute: .Top, relatedBy: .GreaterThanOrEqual, toItem: self.contentView, attribute: .Top, multiplier: 1, constant: self.verticleOffset),
             NSLayoutConstraint(item: self.label, attribute: .Leading, relatedBy: .Equal, toItem: self.contentView, attribute: .Leading, multiplier: 1, constant: self.horizontalOffset),
             NSLayoutConstraint(item: self.label, attribute: .Bottom, relatedBy: .Equal, toItem: self.contentView, attribute: .Bottom, multiplier: 1, constant: -self.verticleOffset),
-            ])
-        
-        self.textField.addConstraints([
+            // Text field constraints
             NSLayoutConstraint(item: self.textField, attribute: .CenterY, relatedBy: .Equal, toItem: self.label, attribute: .CenterY, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: self.textField, attribute: .Leading, relatedBy: .Equal, toItem: self.label, attribute: .Trailing, multiplier: 1, constant: 8),
             NSLayoutConstraint(item: self.textField, attribute: .Trailing, relatedBy: .Equal, toItem: self.contentView, attribute: .Trailing, multiplier: 1, constant: -self.horizontalOffset)
@@ -59,6 +58,16 @@ public class UITableViewCellWithTextField: DynamicTableViewCell {
         }
         
         super.updateConstraints()
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.label.preferredMaxLayoutWidth = CGRectGetWidth(self.label.frame)
+        
+        if !self.didUpdateConstraints {
+            self.addConstraints()
+        }
     }
 
     override public func setSelected(selected: Bool, animated: Bool) {
@@ -80,12 +89,6 @@ public class UITableViewCellWithTextField: DynamicTableViewCell {
         if let textFieldPlaceholder = content["textFieldPlaceholder"] as? String {
             self.textField.placeholder = textFieldPlaceholder
         }
-    }
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        
-        self.label.preferredMaxLayoutWidth = CGRectGetWidth(self.label.frame)
     }
 
 }

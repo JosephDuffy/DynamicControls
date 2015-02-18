@@ -1,5 +1,5 @@
 //
-//  UITableViewCellContentKey.swift
+//  DynamicTableViewCellContentKey.swift
 //  Dynamic Controls
 //
 //  Created by Joseph Duffy on 04/12/2014.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum UITableViewCellContentKey: String {
+public enum DynamicTableViewCellContentKey: String {
     case textLabelText = "TextLabelTextContentKey"
 }

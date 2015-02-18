@@ -1,5 +1,5 @@
 //
-//  DynamicFontTextField.swift
+//  DynamicTypeSegmentedControl.swift
 //  Dynamic Controls
 //
 //  Created by Joseph Duffy on 10/12/2014.
@@ -8,25 +8,29 @@
 
 import UIKit
 
-class DynamicFontTextField: UITextField {
+public class DynamicTypeSegmentedControl: UISegmentedControl {
 
-    override init() {
+    override public init() {
         super.init()
         self.updateFontSize()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "contentSizeCategoryChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    override public init(items: [AnyObject]!) {
+        super.init(items: items)
+    }
+
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func updateFontSize() {
-        let font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        self.font = font
+    private func updateFontSize() {
+        let font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+        self.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
     }
     
     func contentSizeCategoryChanged(notification: NSNotification) {
@@ -36,4 +40,5 @@ class DynamicFontTextField: UITextField {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+
 }

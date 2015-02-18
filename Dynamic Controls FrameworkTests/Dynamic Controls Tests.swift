@@ -2,8 +2,8 @@
 //  DynamicControlsTests.swift
 //  Dynamic Controls Tests
 //
-//  Created by Joseph Duffy on 03/12/2014.
-//  Copyright (c) 2014 Yetii Ltd. All rights reserved.
+//  Created by Joseph Duffy on 18/02/2015.
+//  Copyright (c) 2015 Yetii Ltd. All rights reserved.
 //
 
 import UIKit

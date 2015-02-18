@@ -8,11 +8,7 @@
 
 import UIKit
 
-class DynamicTableViewController: UITableViewController {
-    
-    private lazy var isiOS8OrGreater: Bool = {
-        return (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0
-        }()
+public class DynamicTableViewController: UITableViewController {
     
     private var cachedClassesForCellReuseIdentifiers = [String : DynamicTableViewCell.Type]()
     private var offscreenCellRowsForReuseIdentifiers = [String : DynamicTableViewCell]()
@@ -21,7 +17,11 @@ class DynamicTableViewController: UITableViewController {
     private var offscreenSectionHeadersForReuseIdentifiers = [String : DynamicTableViewHeaderFooterView]()
     private var offscreenSectionFootersForReuseIdentifiers = [String : DynamicTableViewHeaderFooterView]()
     
-    override func viewDidLoad() {
+    lazy var isiOS8OrGreater: Bool = {
+        return (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0
+        }()
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         // Setting the estimated row height prevents the table view from calling tableView:heightForRowAtIndexPath: for every row in the table on first load;
@@ -31,7 +31,7 @@ class DynamicTableViewController: UITableViewController {
         self.tableView.estimatedSectionHeaderHeight = UITableViewAutomaticDimension
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         if !self.isiOS8OrGreater {
@@ -39,7 +39,7 @@ class DynamicTableViewController: UITableViewController {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override public func viewWillDisappear(animated: Bool) {
         if !self.isiOS8OrGreater {
             NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
         }
@@ -54,14 +54,14 @@ class DynamicTableViewController: UITableViewController {
     
     // MARK: Row Cells
     
-    func registerClass(cellClass: DynamicTableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String) {
+    public func registerClass(cellClass: DynamicTableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String) {
         self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] = cellClass
         self.tableView.registerClass(cellClass, forCellReuseIdentifier: reuseIdentifier)
     }
     
     // MARK: Section Headers and Footers
     
-    func registerClass(aClass: DynamicTableViewHeaderFooterView.Type, forHeaderFooterViewReuseIdentifier reuseIdentifier: String) {
+    public func registerClass(aClass: DynamicTableViewHeaderFooterView.Type, forHeaderFooterViewReuseIdentifier reuseIdentifier: String) {
         self.cachedClassesForSectionHeaderFooterReuseIdentifiers[reuseIdentifier] = aClass
         self.tableView.registerClass(aClass, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
     }
@@ -70,16 +70,16 @@ class DynamicTableViewController: UITableViewController {
     
     // MARK: Row cells
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? DynamicTableViewCell {
                 if let cellContent = self.cellContentForIndexPath(indexPath) {
                     cell.configureForContent(cellContent)
-                    
-                    // This must be called when using an auto layout cell and the contents of the cell change
-                    cell.setNeedsUpdateConstraints()
-                    cell.updateConstraintsIfNeeded()
                 }
+                
+                cell.setNeedsUpdateConstraints()
+                cell.updateConstraintsIfNeeded()
+                
                 return cell
             } else {
                 fatalError("Could not dequeue a reusable cell for supplied reuse identifier: \(reuseIdentifier)")
@@ -100,11 +100,11 @@ class DynamicTableViewController: UITableViewController {
     
     :return: The cell's reuse identifier for the given index path, or nil
     */
-    func cellReuseIdentifierForIndexPath(indexPath: NSIndexPath) -> String? {
+    public func cellReuseIdentifierForIndexPath(indexPath: NSIndexPath) -> String? {
         return nil
     }
     
-    func cellContentForIndexPath(indexPath: NSIndexPath) -> [String : AnyObject]? {
+    public func cellContentForIndexPath(indexPath: NSIndexPath) -> [String : AnyObject]? {
         return nil
     }
     
@@ -118,7 +118,7 @@ class DynamicTableViewController: UITableViewController {
     
     :return: A nonnegative floating-point value that specifies the height (in points) that row should be.
     */
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if !self.isiOS8OrGreater {
             // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
             // so we create an imutable NSIndexPath to be passed to the following methods
@@ -145,18 +145,18 @@ class DynamicTableViewController: UITableViewController {
     :return: A nonnegative floating-point value that specifies the height (in points) that row should be.
     */
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if !self.isiOS8OrGreater {
-            // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
-            // so we create an imutable NSIndexPath to be passed to the following methods
-            let imutableIndexPath = NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)
+    if !self.isiOS8OrGreater {
+    // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
+    // so we create an imutable NSIndexPath to be passed to the following methods
+    let imutableIndexPath = NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)
     
-            if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
-                if let cellType = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
-                    return cellType.estimatedHeight()
-                }
-            }
-        }
-        return UITableViewAutomaticDimension
+    if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
+    if let cellType = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
+    return cellType.estimatedHeight()
+    }
+    }
+    }
+    return UITableViewAutomaticDimension
     }
     */
     
@@ -166,7 +166,7 @@ class DynamicTableViewController: UITableViewController {
     
     // MARK: Setion Headers
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override public func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let reuseIdentifier = self.headerViewReuseIdentifierForSection(section) {
             if let headerView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(reuseIdentifier) as? UIView {
                 return headerView
@@ -179,7 +179,7 @@ class DynamicTableViewController: UITableViewController {
         return nil
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override public func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if let reuseIdentifier = self.headerViewReuseIdentifierForSection(section) {
             if let headerView = self.headerViewForReuseIdentifier(reuseIdentifier) {
                 return headerView.calculateHeightInTableView(tableView)
@@ -190,7 +190,7 @@ class DynamicTableViewController: UITableViewController {
     
     // MARK: Setion Footers
     
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    override public func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if let reuseIdentifier = self.footerViewReuseIdentifierForSection(section) {
             if let footerView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(reuseIdentifier) as? UIView {
                 return footerView
@@ -199,11 +199,11 @@ class DynamicTableViewController: UITableViewController {
         return nil
     }
     
-    func footerViewReuseIdentifierForSection(section: Int) -> String? {
+    public func footerViewReuseIdentifierForSection(section: Int) -> String? {
         return nil
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override public func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if let reuseIdentifier = self.footerViewReuseIdentifierForSection(section) {
             if let footerView = self.footerViewForReuseIdentifier(reuseIdentifier) {
                 return footerView.calculateHeightInTableView(tableView)

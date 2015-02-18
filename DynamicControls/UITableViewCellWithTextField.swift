@@ -8,11 +8,11 @@
 
 import UIKit
 
-class UITableViewCellWithTextField: DynamicTableViewCell {
+public class UITableViewCellWithTextField: DynamicTableViewCell {
     
-    private var label: DynamicFontLabel!
-    private(set) var textField: DynamicFontTextField!
-    override var textLabel: UILabel {
+    private var label: DynamicTypeLabel!
+    private(set) public var textField: DynamicTypeTextField!
+    override public var textLabel: UILabel {
         get {
             return self.label
         }
@@ -23,10 +23,10 @@ class UITableViewCellWithTextField: DynamicTableViewCell {
         
         self.selectionStyle = .None
         
-        self.label = DynamicFontLabel()
+        self.label = DynamicTypeLabel()
         self.label.setTranslatesAutoresizingMaskIntoConstraints(false)
         
-        self.textField = DynamicFontTextField()
+        self.textField = DynamicTypeTextField()
         self.textField.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.textField.borderStyle = .None
         self.textField.textAlignment = .Right
@@ -38,16 +38,20 @@ class UITableViewCellWithTextField: DynamicTableViewCell {
     }
     
     private func addConstraints() {
-        self.label.autoPinEdge(.Top, toEdge: .Top, ofView: self.label.superview!, withOffset: self.verticleOffset, relation: .GreaterThanOrEqual)
-        self.label.autoPinEdge(.Leading, toEdge: .Leading, ofView: self.label.superview!, withOffset: self.horizontalOffset, relation: .Equal)
-        self.label.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.label.superview!, withOffset: -self.verticleOffset, relation: .Equal)
+        self.contentView.addConstraints([
+            NSLayoutConstraint(item: self.label, attribute: .Top, relatedBy: .GreaterThanOrEqual, toItem: self.contentView, attribute: .Top, multiplier: 1, constant: self.verticleOffset),
+            NSLayoutConstraint(item: self.label, attribute: .Leading, relatedBy: .Equal, toItem: self.contentView, attribute: .Leading, multiplier: 1, constant: self.horizontalOffset),
+            NSLayoutConstraint(item: self.label, attribute: .Bottom, relatedBy: .Equal, toItem: self.contentView, attribute: .Bottom, multiplier: 1, constant: -self.verticleOffset),
+            ])
         
-        self.textField.autoAlignAxis(.Horizontal, toSameAxisOfView: self.label)
-        self.textField.autoPinEdge(.Leading, toEdge: .Trailing, ofView: self.label, withOffset: 8, relation: .Equal)
-        self.textField.autoPinEdge(.Trailing, toEdge: .Trailing, ofView: self.textField.superview!, withOffset: -self.horizontalOffset, relation: .Equal)
+        self.textField.addConstraints([
+            NSLayoutConstraint(item: self.textField, attribute: .CenterY, relatedBy: .Equal, toItem: self.label, attribute: .CenterY, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: self.textField, attribute: .Leading, relatedBy: .Equal, toItem: self.label, attribute: .Trailing, multiplier: 1, constant: 8),
+            NSLayoutConstraint(item: self.textField, attribute: .Trailing, relatedBy: .Equal, toItem: self.contentView, attribute: .Trailing, multiplier: 1, constant: -self.horizontalOffset)
+            ])
     }
     
-    override func updateConstraints() {
+    override public func updateConstraints() {
         if !self.didUpdateConstraints {
             self.addConstraints()            
             
@@ -57,7 +61,7 @@ class UITableViewCellWithTextField: DynamicTableViewCell {
         super.updateConstraints()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override public func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         if selected {
@@ -65,7 +69,7 @@ class UITableViewCellWithTextField: DynamicTableViewCell {
         }
     }
     
-    override func configureForContent(content: [String : AnyObject]) {
+    override public func configureForContent(content: [String : AnyObject]) {
         super.configureForContent(content)
         if let textFieldText = content["textFieldText"] as? String {
             self.textField.text = textFieldText
@@ -78,7 +82,7 @@ class UITableViewCellWithTextField: DynamicTableViewCell {
         }
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         self.label.preferredMaxLayoutWidth = CGRectGetWidth(self.label.frame)

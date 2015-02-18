@@ -1,5 +1,5 @@
 //
-//  DynamicFontLabel.swift
+//  DynamicTypeLabel.swift
 //  Dynamic Controls
 //
 //  Created by Joseph Duffy on 16/09/2014.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-class DynamicFontLabel: UILabel {
+public class DynamicTypeLabel: UILabel {
 
-    var fontStyle: String?
-    var setupComplete = false
+    public var fontStyle: String?
+    private var setupComplete = false
 
-    convenience override init() {
+    convenience override public init() {
         // Calling this also calls super.init()
         self.init(fontStyle: UIFontTextStyleBody)
     }
 
-    init(fontStyle: String) {
+    public init(fontStyle: String) {
         super.init()
         self.font = UIFont.preferredFontForTextStyle(fontStyle)
         self.setup()
     }
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setup()
     }
@@ -42,13 +42,13 @@ class DynamicFontLabel: UILabel {
         self.setupComplete = true
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         self.preferredMaxLayoutWidth = CGRectGetWidth(self.bounds)
     }
 
-    func currentFontStyle() -> String {
+    public func currentFontStyle() -> String {
         if self.font.isEqual(UIFont.preferredFontForTextStyle(UIFontTextStyleBody)) {
             return UIFontTextStyleBody
         } else if self.font.isEqual(UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)) {

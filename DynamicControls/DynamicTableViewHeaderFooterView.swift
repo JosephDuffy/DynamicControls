@@ -8,28 +8,28 @@
 
 import UIKit
 
-class DynamicTableViewHeaderFooterView: UITableViewHeaderFooterView {
+public class DynamicTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
-    required override init() {
+    required override public init() {
         super.init()
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
     }
     
-    override init(reuseIdentifier: String?) {
+    override public init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     func setup() {}
     
-    func calculateHeightInTableView(tableView: UITableView) -> CGFloat {
+    public func calculateHeightInTableView(tableView: UITableView) -> CGFloat {
         self.setNeedsUpdateConstraints()
         self.updateConstraintsIfNeeded()
         
@@ -42,7 +42,7 @@ class DynamicTableViewHeaderFooterView: UITableViewHeaderFooterView {
         return size.height
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         self.contentView.setNeedsLayout()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-               BuildableName = "Dynamic UITableView.app"
-               BlueprintName = "Dynamic UITableView"
-               ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
+               BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
+               BuildableName = "DynamicControls.framework"
+               BlueprintName = "Dynamic Controls"
+               ReferencedContainer = "container:Dynamic Controls.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D97AA12E1A2F93F30075A040"
-               BuildableName = "Dynamic UITableViewTests.xctest"
-               BlueprintName = "Dynamic UITableViewTests"
-               ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
+               BlueprintIdentifier = "D99D12A41A949B8000FEC5C5"
+               BuildableName = "Dynamic Controls Tests.xctest"
+               BlueprintName = "Dynamic Controls Tests"
+               ReferencedContainer = "container:Dynamic Controls.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,18 +46,18 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D97AA12E1A2F93F30075A040"
-               BuildableName = "Dynamic UITableViewTests.xctest"
-               BlueprintName = "Dynamic UITableViewTests"
-               ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
+               BlueprintIdentifier = "D99D12A41A949B8000FEC5C5"
+               BuildableName = "Dynamic Controls Tests.xctest"
+               BlueprintName = "Dynamic Controls Tests"
+               ReferencedContainer = "container:Dynamic Controls.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "Dynamic Controls.app"
+            BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
+            BuildableName = "DynamicControls.framework"
             BlueprintName = "Dynamic Controls"
             ReferencedContainer = "container:Dynamic Controls.xcodeproj">
          </BuildableReference>
@@ -72,16 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "Dynamic Controls.app"
+            BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
+            BuildableName = "DynamicControls.framework"
             BlueprintName = "Dynamic Controls"
             ReferencedContainer = "container:Dynamic Controls.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -91,16 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D97AA1191A2F93F30075A040"
-            BuildableName = "Dynamic UITableView.app"
-            BlueprintName = "Dynamic UITableView"
-            ReferencedContainer = "container:Dynamic UITableView.xcodeproj">
+            BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
+            BuildableName = "DynamicControls.framework"
+            BlueprintName = "Dynamic Controls"
+            ReferencedContainer = "container:Dynamic Controls.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

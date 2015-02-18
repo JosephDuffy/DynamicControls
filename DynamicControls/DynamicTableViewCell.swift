@@ -14,7 +14,7 @@ public class DynamicTableViewCell: UITableViewCell {
         return UITableViewAutomaticDimension
     }
     
-    private(set) public var style: UITableViewCellStyle?
+    public var style: UITableViewCellStyle?
     private(set) var setupComplete = false
     private lazy var isLessThaniOS8: Bool = {
         return (UIDevice.currentDevice().systemVersion as NSString).floatValue < 8

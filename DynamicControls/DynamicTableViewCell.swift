@@ -51,7 +51,7 @@ public class DynamicTableViewCell: UITableViewCell {
         self.setup()
     }
     
-    func setup() {
+    public func setup() {
         assert(!self.setupComplete, "Attempt to call setup on DynamicTableViewCell more than once")
         self.updateFonts()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "contentSizeCategoryChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)

@@ -33,7 +33,7 @@ public class DynamicTypeLabel: UILabel {
         self.setup()
     }
 
-    func setup() {
+    public func setup() {
         assert(!self.setupComplete, "Setup cannot be called twice")
         
         self.fontStyle = self.currentFontStyle()

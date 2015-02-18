@@ -30,7 +30,7 @@ public class DynamicTableViewCellAsButton: DynamicTableViewCell {
     }
     private var didUpdateConstraints = false
 
-    override func setup() {
+    override public func setup() {
         self.label = DynamicTypeLabel()
         self.label.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.label.textAlignment = .Center

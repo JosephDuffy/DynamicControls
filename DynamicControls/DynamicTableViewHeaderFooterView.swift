@@ -27,7 +27,7 @@ public class DynamicTableViewHeaderFooterView: UITableViewHeaderFooterView {
         super.init(coder: aDecoder)
     }
     
-    func setup() {}
+    public func setup() {}
     
     public func calculateHeightInTableView(tableView: UITableView) -> CGFloat {
         self.setNeedsUpdateConstraints()

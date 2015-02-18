@@ -19,7 +19,7 @@ public class UITableViewCellWithTextField: DynamicTableViewCell {
     }
     private var didUpdateConstraints = false
     
-    override func setup() {
+    override public func setup() {
         
         self.selectionStyle = .None
         

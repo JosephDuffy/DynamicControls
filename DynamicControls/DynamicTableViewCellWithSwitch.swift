@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DynamicControls
 
 public class DynamicTableViewCellWithSwitch: DynamicTableViewCell {
     private var label: DynamicTypeLabel!

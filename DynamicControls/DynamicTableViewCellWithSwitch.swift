@@ -30,7 +30,6 @@ public class DynamicTableViewCellWithSwitch: DynamicTableViewCell {
         self.contentView.addConstraints([
             // Switch constraints
             NSLayoutConstraint(item: self.rowSwitch, attribute: .CenterY, relatedBy: .Equal, toItem: self.textLabel, attribute: .CenterY, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self.rowSwitch, attribute: .Leading, relatedBy: .Equal, toItem: self.textLabel, attribute: .Trailing, multiplier: 1, constant: 8),
             NSLayoutConstraint(item: self.rowSwitch, attribute: .Trailing, relatedBy: .Equal, toItem: self.contentView, attribute: .Trailing, multiplier: 1, constant: -self.horizontalOffset)
             ])
         

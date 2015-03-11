@@ -44,7 +44,7 @@ public class DynamicTableViewCellWithTextField: DynamicTableViewCell {
             NSLayoutConstraint(item: self.label, attribute: .Leading, relatedBy: .Equal, toItem: self.contentView, attribute: .Leading, multiplier: 1, constant: self.horizontalOffset),
             NSLayoutConstraint(item: self.label, attribute: .Bottom, relatedBy: .Equal, toItem: self.contentView, attribute: .Bottom, multiplier: 1, constant: -self.verticleOffset),
             // Text field constraints
-            NSLayoutConstraint(item: self.textField, attribute: .CenterY, relatedBy: .Equal, toItem: self.label, attribute: .CenterY, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: self.textField, attribute: .CenterY, relatedBy: .Equal, toItem: self.contentView, attribute: .CenterY, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: self.textField, attribute: .Leading, relatedBy: .Equal, toItem: self.label, attribute: .Trailing, multiplier: 1, constant: 8),
             NSLayoutConstraint(item: self.textField, attribute: .Trailing, relatedBy: .Equal, toItem: self.contentView, attribute: .Trailing, multiplier: 1, constant: -self.horizontalOffset)
             ])
@@ -75,19 +75,6 @@ public class DynamicTableViewCellWithTextField: DynamicTableViewCell {
 
         if selected {
             self.textField.becomeFirstResponder()
-        }
-    }
-    
-    override public func configureForContent(content: [String : AnyObject]) {
-        super.configureForContent(content)
-        if let textFieldText = content["textFieldText"] as? String {
-            self.textField.text = textFieldText
-        }
-        if let textFieldTag = content["textFieldTag"] as? Int {
-            self.textField.tag = textFieldTag
-        }
-        if let textFieldPlaceholder = content["textFieldPlaceholder"] as? String {
-            self.textField.placeholder = textFieldPlaceholder
         }
     }
 

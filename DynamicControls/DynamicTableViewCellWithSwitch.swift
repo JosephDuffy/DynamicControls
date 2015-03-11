@@ -29,8 +29,11 @@ public class DynamicTableViewCellWithSwitch: DynamicTableViewCell {
         
         self.contentView.addConstraints([
             // Switch constraints
-            NSLayoutConstraint(item: self.rowSwitch, attribute: .CenterY, relatedBy: .Equal, toItem: self.textLabel, attribute: .CenterY, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self.rowSwitch, attribute: .Trailing, relatedBy: .Equal, toItem: self.contentView, attribute: .Trailing, multiplier: 1, constant: -self.horizontalOffset)
+            NSLayoutConstraint(item: self.rowSwitch, attribute: .CenterY, relatedBy: .Equal, toItem: self.contentView, attribute: .CenterY, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: self.rowSwitch, attribute: .Trailing, relatedBy: .Equal, toItem: self.contentView, attribute: .Trailing, multiplier: 1, constant: -self.horizontalOffset),
+            // Content view height
+            NSLayoutConstraint(item: self.contentView, attribute: .Top, relatedBy: .LessThanOrEqual, toItem: self.rowSwitch, attribute: .Top, multiplier: 1, constant: -6),
+            NSLayoutConstraint(item: self.contentView, attribute: .Bottom, relatedBy: .GreaterThanOrEqual, toItem: self.rowSwitch, attribute: .Bottom, multiplier: 1, constant: 6.5)
             ])
         
         self.didUpdateConstraints = true
@@ -49,13 +52,6 @@ public class DynamicTableViewCellWithSwitch: DynamicTableViewCell {
         
         if !self.didUpdateConstraints {
             self.addConstraints()
-        }
-    }
-    
-    override public func configureForContent(content: [String : AnyObject]) {
-        super.configureForContent(content)
-        if let switchOn = content["switchOn"] as? Bool {
-            self.rowSwitch.on = switchOn
         }
     }
     

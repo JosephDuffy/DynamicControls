@@ -25,6 +25,7 @@ public class DynamicTableViewCell: UITableViewCell {
         }()
     
     public let verticleOffset: CGFloat = 11.5
+    public var calculateHeight: Bool = true
     public var forceUpdateDefaultLabels = false
     
     required override public init() {
@@ -83,38 +84,32 @@ public class DynamicTableViewCell: UITableViewCell {
         }
     }
     
-    public func heightForContent(content: [String : AnyObject]?, inTableView tableView: UITableView) -> CGFloat {
-        if content != nil {
-            self.configureForContent(content!)
-        }
-        
-        self.setNeedsUpdateConstraints()
-        self.updateConstraintsIfNeeded()
-        
-        self.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGRectGetHeight(self.bounds))
-        
-        self.setNeedsLayout()
-        self.layoutIfNeeded()
-        
-        let size = self.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-        let boundsHeight = CGRectGetHeight(self.bounds)
-        
-        if size.height > 0 && size.height >= boundsHeight {
-            // +1 for the cell separator
-            return size.height + 1
+    public func heightInTableView(tableView: UITableView) -> CGFloat {
+        if self.calculateHeight {
+            return 44.5
         } else {
-            // In some situations (such as the content view not having any/enough constraints to get a height), the
-            // size from the systemLayoutSizeFittingSize: will be 0. However, because this can _sometimes_ be intended
-            // (e.g., when adding to a default style; see: DynamicSubtitleTableViewCell), we just return
-            // the height of the cell as-is. This may make some cells look wrong, but overall will also prevent 0 being returned,
-            // hopefully stopping some things from breaking.
-            return boundsHeight + 1
-        }
-    }
-    
-    public func configureForContent(content: [String : AnyObject]) {
-        if let textLabelText = content[DynamicTableViewCellContentKey.textLabelText.rawValue] as? String {
-            self.textLabel?.text = textLabelText
+            self.setNeedsUpdateConstraints()
+            self.updateConstraintsIfNeeded()
+            
+            self.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGRectGetHeight(self.bounds))
+            
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+            
+            let size = self.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+            let boundsHeight = CGRectGetHeight(self.bounds)
+            
+            if size.height > 0 && size.height >= boundsHeight {
+                // +1 for the cell separator
+                return size.height + 1
+            } else {
+                // In some situations (such as the content view not having any/enough constraints to get a height), the
+                // size from the systemLayoutSizeFittingSize: will be 0. However, because this can _sometimes_ be intended
+                // (e.g., when adding to a default style; see: DynamicSubtitleTableViewCell), we just return
+                // the height of the cell as-is. This may make some cells look wrong, but overall will also prevent 0 being returned,
+                // hopefully stopping some things from breaking.
+                return boundsHeight + 1
+            }
         }
     }
     

@@ -10,8 +10,8 @@ import UIKit
 
 public class DynamicTableViewController: UITableViewController {
     
-    private var cachedClassesForCellReuseIdentifiers = [String : DynamicTableViewCell.Type]()
-    private var offscreenCellRowsForReuseIdentifiers = [String : DynamicTableViewCell]()
+    private var cachedClassesForCellReuseIdentifiers = [String : UITableViewCell.Type]()
+    private var offscreenCellRowsForReuseIdentifiers = [String : UITableViewCell]()
     
     private var cachedClassesForSectionHeaderFooterReuseIdentifiers = [String : DynamicTableViewHeaderFooterView.Type]()
     private var offscreenSectionHeadersForReuseIdentifiers = [String : DynamicTableViewHeaderFooterView]()
@@ -54,7 +54,7 @@ public class DynamicTableViewController: UITableViewController {
     
     // MARK: Row Cells
     
-    public func registerClass(cellClass: DynamicTableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String) {
+    public func registerClass(cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String) {
         self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] = cellClass
         self.tableView.registerClass(cellClass, forCellReuseIdentifier: reuseIdentifier)
     }
@@ -70,15 +70,14 @@ public class DynamicTableViewController: UITableViewController {
     
     // MARK: Row cells
     
+    public func configureCell(cell: UITableViewCell, forIndexPath indexPath: NSIndexPath) {
+        // By default, this does nothing, but should be overridden by subclasses
+    }
+    
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
-            if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? DynamicTableViewCell {
-                if let cellContent = self.cellContentForIndexPath(indexPath) {
-                    cell.configureForContent(cellContent)
-                }
-                
-                cell.setNeedsUpdateConstraints()
-                cell.updateConstraintsIfNeeded()
+            if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? UITableViewCell {
+                self.configureCell(cell, forIndexPath: indexPath)
                 
                 return cell
             } else {
@@ -119,17 +118,35 @@ public class DynamicTableViewController: UITableViewController {
     :return: A nonnegative floating-point value that specifies the height (in points) that row should be.
     */
     override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if !self.isiOS8OrGreater {
-            // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
-            // so we create an imutable NSIndexPath to be passed to the following methods
-            let imutableIndexPath = NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)
-            
-            if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(imutableIndexPath) {
-                if let cell = self.cellForReuseIdentifier(reuseIdentifier) {
-                    return cell.heightForContent(self.cellContentForIndexPath(imutableIndexPath), inTableView: tableView)
+        // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
+        // so we create an imutable NSIndexPath to be passed to the following methods
+        let imutableIndexPath = NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)
+        
+        if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(imutableIndexPath) {
+            if let cell = self.cellForReuseIdentifier(reuseIdentifier) {
+                self.configureCell(cell, forIndexPath: indexPath)
+                //self.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                if let dynamicCell = cell as? DynamicTableViewCell {
+                    return dynamicCell.heightInTableView(tableView)
+                } else {
+                    // Fallback for non-DynamicTableViewCell cells
+                    let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                    let cellBoundsHeight = CGRectGetHeight(cell.bounds)
+                    if size.height > 0 && size.height >= cellBoundsHeight {
+                        // +1 for the cell separator
+                        return size.height + 1
+                    } else {
+                        // In some situations (such as the content view not having any/enough constraints to get a height), the
+                        // size from the systemLayoutSizeFittingSize: will be 0. However, because this can _sometimes_ be intended
+                        // (e.g., when adding to a default style; see: DynamicSubtitleTableViewCell), we just return
+                        // the height of the cell as-is. This may make some cells look wrong, but overall will also prevent 0 being returned,
+                        // hopefully stopping some things from breaking.
+                        return cellBoundsHeight + 1
+                    }
                 }
             }
         }
+        
         return UITableViewAutomaticDimension
     }
     
@@ -216,7 +233,7 @@ public class DynamicTableViewController: UITableViewController {
     
     // MARK: Cell rows
     
-    private func cellForReuseIdentifier(reuseIdentifier: String) -> DynamicTableViewCell? {
+    private func cellForReuseIdentifier(reuseIdentifier: String) -> UITableViewCell? {
         if self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] == nil {
             if let cellClass = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
                 let cell = cellClass()

@@ -24,8 +24,9 @@ public class DynamicTableViewController: UITableViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setting the estimated row height prevents the table view from calling tableView:heightForRowAtIndexPath: for every row in the table on first load;
-        // it will only be called as cells are about to scroll onscreen. This is a major performance optimization.
+        // Setting the estimated row height prevents the table view from calling tableView:heightForRowAtIndexPath: for
+        // every row in the table on first load; it will only be called as cells are about
+        // to scroll onscreen. This is a major performance optimization.
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedSectionFooterHeight = UITableViewAutomaticDimension
         self.tableView.estimatedSectionHeaderHeight = UITableViewAutomaticDimension
@@ -92,18 +93,15 @@ public class DynamicTableViewController: UITableViewController {
     Get the reuse identifier for the specified index path.
     
     Returning nil from this method will cause height calculations to not be performed
-    for the given index path. If you do return nil, you **must** override the
-    tableView:cellForRowAtIndexPath method in your subclass and return a UITableViewCell instance.
+    for the given index path and the cell will not be automatically created in the tableView:cellForRowAtIndexPath: metho.
+    Due to this, if you do return nil, you **must** override the tableView:cellForRowAtIndexPath: method
+    in your subclass and return a UITableViewCell instance, or your app will crash.
     
     :param: indexPath The index path to return the cell's reuse identifier for
     
     :return: The cell's reuse identifier for the given index path, or nil
     */
     public func cellReuseIdentifierForIndexPath(indexPath: NSIndexPath) -> String? {
-        return nil
-    }
-    
-    public func cellContentForIndexPath(indexPath: NSIndexPath) -> [String : AnyObject]? {
         return nil
     }
     
@@ -149,33 +147,6 @@ public class DynamicTableViewController: UITableViewController {
         
         return UITableViewAutomaticDimension
     }
-    
-    /*
-    /**
-    It can sometimes be useful to override this this method if you have a static estimated height. It is often a
-    better idea to override the estimatedHeight class-method in the AutoLayoutTableViewCell class.
-    By default, this method will always return UITableViewAutomaticDimension
-    
-    :param: tableView The table-view object requesting this information.
-    :param: indexPath An index path that locates a row in tableView.
-    
-    :return: A nonnegative floating-point value that specifies the height (in points) that row should be.
-    */
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if !self.isiOS8OrGreater {
-    // This method is called with an NSMutableIndexPath, which is not compatible with an imutable NSIndexPath,
-    // so we create an imutable NSIndexPath to be passed to the following methods
-    let imutableIndexPath = NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)
-    
-    if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
-    if let cellType = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
-    return cellType.estimatedHeight()
-    }
-    }
-    }
-    return UITableViewAutomaticDimension
-    }
-    */
     
     /*
     In cells, iOS sorts out setting the height correctly, but not in iOS 7

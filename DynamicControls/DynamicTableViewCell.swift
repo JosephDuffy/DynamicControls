@@ -10,60 +10,49 @@ import UIKit
 
 public class DynamicTableViewCell: UITableViewCell {
     
-    class func estimatedHeight() -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
     public var style: UITableViewCellStyle?
     private(set) var setupComplete = false
     private lazy var isLessThaniOS8: Bool = {
         return (UIDevice.currentDevice().systemVersion as NSString).floatValue < 8
         }()
-    
+
     lazy public var horizontalOffset: CGFloat = {
         return self.separatorInset.left
         }()
-    
+
     public let verticleOffset: CGFloat = 11.5
-    public var calculateHeight: Bool = true
+    public var calculateHeight = false
     public var forceUpdateDefaultLabels = false
-    
-    required override public init() {
-        super.init()
-    }
-    
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
+    public private(set) var cellHeight: CGFloat = 44.5
+
     override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         self.style = style
-        
+
         // Calling init with no params eventually calls this init, so this is where we
         // will do our setup
         self.setup()
     }
-    
+
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
         self.setup()
     }
-    
+
     public func setup() {
         assert(!self.setupComplete, "Attempt to call setup on DynamicTableViewCell more than once")
         self.updateFonts()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "contentSizeCategoryChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
-        
+
         self.setupComplete = true
     }
-    
+
     func contentSizeCategoryChanged(notification: NSNotification) {
         self.updateFonts()
     }
-    
+
     func updateFonts() {
         if let style = self.style {
             // On iOS 8+ this is handled for us. Yey!
@@ -83,22 +72,20 @@ public class DynamicTableViewCell: UITableViewCell {
             }
         }
     }
-    
+
     public func heightInTableView(tableView: UITableView) -> CGFloat {
         if self.calculateHeight {
-            return 44.5
-        } else {
             self.setNeedsUpdateConstraints()
             self.updateConstraintsIfNeeded()
-            
+
             self.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGRectGetHeight(self.bounds))
-            
+
             self.setNeedsLayout()
             self.layoutIfNeeded()
-            
+
             let size = self.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
             let boundsHeight = CGRectGetHeight(self.bounds)
-            
+
             if size.height > 0 && size.height >= boundsHeight {
                 // +1 for the cell separator
                 return size.height + 1
@@ -110,16 +97,18 @@ public class DynamicTableViewCell: UITableViewCell {
                 // hopefully stopping some things from breaking.
                 return boundsHeight + 1
             }
+        } else {
+            return self.cellHeight
         }
     }
-    
+
     override public func layoutSubviews() {
         super.layoutSubviews()
-        
+
         self.contentView.setNeedsLayout()
         self.contentView.layoutIfNeeded()
     }
-    
+
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }

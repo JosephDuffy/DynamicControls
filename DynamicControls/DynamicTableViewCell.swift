@@ -23,7 +23,7 @@ public class DynamicTableViewCell: UITableViewCell {
     public let verticleOffset: CGFloat = 11.5
     public var calculateHeight = false
     public var forceUpdateDefaultLabels = false
-    public private(set) var cellHeight: CGFloat = 44.5
+    public var cellHeight: CGFloat = 44.5
 
     override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

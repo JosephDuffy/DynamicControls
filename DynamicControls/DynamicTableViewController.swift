@@ -11,6 +11,7 @@ import UIKit
 public class DynamicTableViewController: UITableViewController {
     
     private var cachedClassesForCellReuseIdentifiers = [String : UITableViewCell.Type]()
+    private var cachedNibsForCellReuseIdentifiers = [String : UINib]()
     private var offscreenCellRowsForReuseIdentifiers = [String : UITableViewCell]()
     
     private var cachedClassesForSectionHeaderFooterReuseIdentifiers = [String : DynamicTableViewHeaderFooterView.Type]()
@@ -58,6 +59,11 @@ public class DynamicTableViewController: UITableViewController {
     public func registerClass(cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String) {
         self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] = cellClass
         self.tableView.registerClass(cellClass, forCellReuseIdentifier: reuseIdentifier)
+    }
+
+    public func registerNib(nib: UINib, forCellReuseIdentifier reuseIdentifier: String) {
+        self.cachedNibsForCellReuseIdentifiers[reuseIdentifier] = nib
+        self.tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
     }
     
     // MARK: Section Headers and Footers
@@ -123,7 +129,7 @@ public class DynamicTableViewController: UITableViewController {
         if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(imutableIndexPath) {
             if let cell = self.cellForReuseIdentifier(reuseIdentifier) {
                 self.configureCell(cell, forIndexPath: indexPath)
-                //self.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+
                 if let dynamicCell = cell as? DynamicTableViewCell {
                     return dynamicCell.heightInTableView(tableView)
                 } else {
@@ -209,6 +215,10 @@ public class DynamicTableViewController: UITableViewController {
             if let cellClass = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
                 let cell = cellClass()
                 self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] = cell
+            } else if let cellNib = self.cachedNibsForCellReuseIdentifiers[reuseIdentifier] {
+                if let cell = cellNib.instantiateWithOwner(nil, options: nil).first as? UITableViewCell {
+                    self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] = cell
+                }
             }
         }
         return self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier]

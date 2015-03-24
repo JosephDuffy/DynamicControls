@@ -21,9 +21,22 @@ public class DynamicTableViewCell: UITableViewCell {
         }()
 
     public let verticleOffset: CGFloat = 11.5
-    public var calculateHeight = false
     public var forceUpdateDefaultLabels = false
+
+    /// If this property is set to a non-nil value, each of the labels
+    /// will be resized prior to calculating the height. This is required when
+    /// using UILabels with varying text and numberOfLines set to 0
+    public var resizableLabels: [UILabel]?
+
+    // Cell height
+    public var calculateHeight = false
     public var cellHeight: CGFloat = 44.5
+    public var minimumHeight: CGFloat?
+    public class var estimatedHeight: CGFloat? {
+        get {
+            return 44.5
+        }
+    }
 
     override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -74,7 +87,14 @@ public class DynamicTableViewCell: UITableViewCell {
     }
 
     public func heightInTableView(tableView: UITableView) -> CGFloat {
+        var height: CGFloat!
         if self.calculateHeight {
+            if let labelsToUpdate = self.resizableLabels {
+                for labelToUpdate in labelsToUpdate {
+                    labelToUpdate.preferredMaxLayoutWidth = labelToUpdate.frame.size.width
+                }
+            }
+
             self.setNeedsUpdateConstraints()
             self.updateConstraintsIfNeeded()
 
@@ -88,17 +108,23 @@ public class DynamicTableViewCell: UITableViewCell {
 
             if size.height > 0 && size.height >= boundsHeight {
                 // +1 for the cell separator
-                return size.height + 1
+                height = size.height + 1
             } else {
                 // In some situations (such as the content view not having any/enough constraints to get a height), the
                 // size from the systemLayoutSizeFittingSize: will be 0. However, because this can _sometimes_ be intended
                 // (e.g., when adding to a default style; see: DynamicSubtitleTableViewCell), we just return
                 // the height of the cell as-is. This may make some cells look wrong, but overall will also prevent 0 being returned,
                 // hopefully stopping some things from breaking.
-                return boundsHeight + 1
+                height = boundsHeight + 1
             }
         } else {
-            return self.cellHeight
+            height = self.cellHeight
+        }
+
+        if height < self.minimumHeight && self.minimumHeight != nil {
+            return self.minimumHeight!
+        } else {
+            return height
         }
     }
 

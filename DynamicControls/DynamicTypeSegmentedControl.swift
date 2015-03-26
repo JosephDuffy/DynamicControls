@@ -10,7 +10,7 @@ import UIKit
 
 public class DynamicTypeSegmentedControl: UISegmentedControl {
 
-    convenience public override init() {
+    convenience public init() {
         self.init(frame: CGRect.zeroRect)
     }
 

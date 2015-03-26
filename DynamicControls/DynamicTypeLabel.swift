@@ -13,23 +13,24 @@ public class DynamicTypeLabel: UILabel {
     public var fontStyle: String?
     private var setupComplete = false
 
-    convenience override public init() {
-        // Calling this also calls super.init()
+    convenience public override init() {
         self.init(fontStyle: UIFontTextStyleBody)
     }
 
     public init(fontStyle: String) {
-        super.init()
+        super.init(frame: CGRect.zeroRect)
         self.font = UIFont.preferredFontForTextStyle(fontStyle)
-        self.setup()
     }
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.setup()
     }
 
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+
         self.setup()
     }
 

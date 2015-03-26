@@ -10,22 +10,25 @@ import UIKit
 
 public class DynamicTypeSegmentedControl: UISegmentedControl {
 
-    override public init() {
-        super.init()
-        self.updateFontSize()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "contentSizeCategoryChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+    convenience public override init() {
+        self.init(frame: CGRect.zeroRect)
     }
-    
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    override public init(items: [AnyObject]!) {
-        super.init(items: items)
+
+        self.setup()
     }
 
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+
+        self.setup()
+    }
+
+    private func setup() {
+        self.updateFontSize()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "contentSizeCategoryChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
     private func updateFontSize() {

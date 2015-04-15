@@ -13,7 +13,7 @@ public class DynamicTypeLabel: UILabel {
     public var fontStyle: String?
     private var setupComplete = false
 
-    convenience public override init() {
+    convenience public init() {
         self.init(fontStyle: UIFontTextStyleBody)
     }
 

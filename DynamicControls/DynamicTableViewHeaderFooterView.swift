@@ -10,7 +10,7 @@ import UIKit
 
 public class DynamicTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
-    convenience required public override init() {
+    convenience required public init() {
         self.init(frame: CGRect.zeroRect)
     }
     

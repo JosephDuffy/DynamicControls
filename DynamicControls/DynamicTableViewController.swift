@@ -17,6 +17,10 @@ public class DynamicTableViewController: UITableViewController {
     private var cachedClassesForSectionHeaderFooterReuseIdentifiers = [String : DynamicTableViewHeaderFooterView.Type]()
     private var offscreenSectionHeadersForReuseIdentifiers = [String : DynamicTableViewHeaderFooterView]()
     private var offscreenSectionFootersForReuseIdentifiers = [String : DynamicTableViewHeaderFooterView]()
+
+    private var offScreenWindow: UIWindow = {
+        return UIWindow(frame: UIScreen.mainScreen().applicationFrame)
+    }()
     
     lazy var isiOS8OrGreater: Bool = {
         return (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0
@@ -85,6 +89,9 @@ public class DynamicTableViewController: UITableViewController {
         if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? UITableViewCell {
                 self.configureCell(cell, forIndexPath: indexPath)
+
+                cell.setNeedsUpdateConstraints()
+                cell.updateConstraintsIfNeeded()
                 
                 return cell
             } else {
@@ -214,9 +221,12 @@ public class DynamicTableViewController: UITableViewController {
         if self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] == nil {
             if let cellClass = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
                 let cell = cellClass()
+
+                self.offScreenWindow.addSubview(cell)
                 self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] = cell
             } else if let cellNib = self.cachedNibsForCellReuseIdentifiers[reuseIdentifier] {
                 if let cell = cellNib.instantiateWithOwner(nil, options: nil).first as? UITableViewCell {
+                    self.offScreenWindow.addSubview(cell)
                     self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] = cell
                 }
             }

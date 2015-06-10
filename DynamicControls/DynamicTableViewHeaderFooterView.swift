@@ -9,22 +9,17 @@
 import UIKit
 
 public class DynamicTableViewHeaderFooterView: UITableViewHeaderFooterView {
-
-    convenience required public init() {
-        self.init(frame: CGRect.zeroRect)
-    }
-    
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setup()
-    }
     
     override public init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+
+        self.setup()
     }
 
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+
+        self.setup()
     }
     
     public func setup() {}

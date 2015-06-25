@@ -19,7 +19,11 @@ public class DynamicTableViewController: UITableViewController {
     private var offscreenSectionFootersForReuseIdentifiers = [String : DynamicTableViewHeaderFooterView]()
 
     private var offScreenWindow: UIWindow = {
-        return UIWindow(frame: UIScreen.mainScreen().applicationFrame)
+        if #available(iOS 8.1, *) {
+            return UIWindow(frame: UIScreen.mainScreen().bounds)
+        } else {
+            return UIWindow(frame: UIScreen.mainScreen().applicationFrame)
+        }
     }()
     
     lazy var isiOS8OrGreater: Bool = {
@@ -87,16 +91,13 @@ public class DynamicTableViewController: UITableViewController {
     
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let reuseIdentifier = self.cellReuseIdentifierForIndexPath(indexPath) {
-            if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? UITableViewCell {
-                self.configureCell(cell, forIndexPath: indexPath)
+            let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
+            self.configureCell(cell, forIndexPath: indexPath)
 
-                cell.setNeedsUpdateConstraints()
-                cell.updateConstraintsIfNeeded()
-                
-                return cell
-            } else {
-                fatalError("Could not dequeue a reusable cell for supplied reuse identifier: \(reuseIdentifier)")
-            }
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
+            
+            return cell
         } else {
             fatalError("Could not get a reuse identifier for section \(indexPath.section), row \(indexPath.row)")
         }
@@ -110,7 +111,7 @@ public class DynamicTableViewController: UITableViewController {
     Due to this, if you do return nil, you **must** override the tableView:cellForRowAtIndexPath: method
     in your subclass and return a UITableViewCell instance, or your app will crash.
     
-    :param: indexPath The index path to return the cell's reuse identifier for
+    - parameter indexPath: The index path to return the cell's reuse identifier for
     
     :return: The cell's reuse identifier for the given index path, or nil
     */
@@ -123,8 +124,8 @@ public class DynamicTableViewController: UITableViewController {
     By default, this method will handle the calculation for the height of a cell at the given index path.
     If a cell at a specific index path has a known height you may return it here
     
-    :param: tableView The table-view object requesting this information.
-    :param: indexPath An index path that locates a row in tableView.
+    - parameter tableView: The table-view object requesting this information.
+    - parameter indexPath: An index path that locates a row in tableView.
     
     :return: A nonnegative floating-point value that specifies the height (in points) that row should be.
     */
@@ -169,7 +170,7 @@ public class DynamicTableViewController: UITableViewController {
     
     override public func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let reuseIdentifier = self.headerViewReuseIdentifierForSection(section) {
-            if let headerView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(reuseIdentifier) as? UIView {
+            if let headerView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(reuseIdentifier) {
                 return headerView
             }
         }
@@ -193,7 +194,7 @@ public class DynamicTableViewController: UITableViewController {
     
     override public func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if let reuseIdentifier = self.footerViewReuseIdentifierForSection(section) {
-            if let footerView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(reuseIdentifier) as? UIView {
+            if let footerView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(reuseIdentifier) {
                 return footerView
             }
         }

@@ -80,7 +80,7 @@ public class DynamicTableViewCell: UITableViewCell {
                     self.textLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
                     self.detailTextLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
                 case .Value2:
-                    println("Warning: UITableViewCellStyleValue2 does not currently support automatic dynamic font sizing on iOS 7")
+                    print("Warning: UITableViewCellStyleValue2 does not currently support automatic dynamic font sizing on iOS 7")
                 }
             }
         }
@@ -110,7 +110,7 @@ public class DynamicTableViewCell: UITableViewCell {
                 // +1 for the cell separator
                 height = size.height + 1
             } else {
-                println("Warning: Cell's height could not be calculated properly. You may have auto layout issues in your cell")
+                print("Warning: Cell's height could not be calculated properly. You may have auto layout issues in your cell")
                 // In some situations (such as the content view not having any/enough constraints to get a height), the
                 // size from the systemLayoutSizeFittingSize: will be 0. However, because this can _sometimes_ be intended
                 // (e.g., when adding to a default style; see: DynamicSubtitleTableViewCell), we just return

@@ -24,10 +24,10 @@ public class DynamicTableViewCellWithTextField: DynamicTableViewCell {
         self.selectionStyle = .None
         
         self.label = DynamicTypeLabel()
-        self.label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.label.translatesAutoresizingMaskIntoConstraints = false
         
         self.textField = DynamicTypeTextField()
-        self.textField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.textField.translatesAutoresizingMaskIntoConstraints = false
         self.textField.borderStyle = .None
         self.textField.textAlignment = .Right
         // Setting this allows the text field to fill the space left by the label

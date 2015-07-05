@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D98C8F861A960D7A00F78209 /* Dynamic Controls Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = D98C8F841A960D7A00F78209 /* Dynamic Controls Framework.h */; };
+		D98C8F861A960D7A00F78209 /* Dynamic Controls Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = D98C8F841A960D7A00F78209 /* Dynamic Controls Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D98C8F881A960E5400F78209 /* Dynamic Controls Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C8F801A960D6300F78209 /* Dynamic Controls Tests.swift */; };
 		D9988DCD1B49745A008DB144 /* DynamicTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99C8A221A979B9300EB29C6 /* DynamicTypeLabel.swift */; };
 		D9988DCE1B49745A008DB144 /* DynamicTypeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99C8A1B1A979B1D00EB29C6 /* DynamicTypeSegmentedControl.swift */; };

@@ -66,7 +66,7 @@ public class DynamicTableViewCell: UITableViewCell {
         self.updateFonts()
     }
 
-    func updateFonts() {
+    public func updateFonts() {
         if let style = self.style {
             // On iOS 8+ this is handled for us. Yey!
             if self.isLessThaniOS8 || self.forceUpdateDefaultLabels {

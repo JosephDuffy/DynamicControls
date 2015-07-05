@@ -221,7 +221,7 @@ public class DynamicTableViewController: UITableViewController {
     private func cellForReuseIdentifier(reuseIdentifier: String) -> UITableViewCell? {
         if self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] == nil {
             if let cellClass = self.cachedClassesForCellReuseIdentifiers[reuseIdentifier] {
-                let cell = cellClass()
+                let cell = cellClass.init()
 
                 self.offScreenWindow.addSubview(cell)
                 self.offscreenCellRowsForReuseIdentifiers[reuseIdentifier] = cell
@@ -240,7 +240,7 @@ public class DynamicTableViewController: UITableViewController {
     private func headerViewForReuseIdentifier(reuseIdentifier: String) -> DynamicTableViewHeaderFooterView? {
         if self.offscreenSectionHeadersForReuseIdentifiers[reuseIdentifier] == nil {
             if let cellClass = self.cachedClassesForSectionHeaderFooterReuseIdentifiers[reuseIdentifier] {
-                let cell = cellClass()
+                let cell = cellClass.init()
                 self.offscreenSectionHeadersForReuseIdentifiers[reuseIdentifier] = cell
             }
         }
@@ -252,7 +252,7 @@ public class DynamicTableViewController: UITableViewController {
     private func footerViewForReuseIdentifier(reuseIdentifier: String) -> DynamicTableViewHeaderFooterView? {
         if self.offscreenSectionFootersForReuseIdentifiers[reuseIdentifier] == nil {
             if let cellClass = self.cachedClassesForSectionHeaderFooterReuseIdentifiers[reuseIdentifier] {
-                let cell = cellClass()
+                let cell = cellClass.init()
                 self.offscreenSectionFootersForReuseIdentifiers[reuseIdentifier] = cell
             }
         }

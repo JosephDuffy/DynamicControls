@@ -20,7 +20,7 @@ public class DynamicTypeSegmentedControl: UISegmentedControl {
         self.setup()
     }
 
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.setup()

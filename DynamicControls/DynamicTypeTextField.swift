@@ -11,7 +11,7 @@ import UIKit
 public class DynamicTypeTextField: UITextField {
 
     convenience public init() {
-        self.init(frame: CGRect.zeroRect)
+        self.init(frame: CGRect.zero)
     }
     
     override public init(frame: CGRect) {
@@ -21,7 +21,7 @@ public class DynamicTypeTextField: UITextField {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "contentSizeCategoryChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.updateFontSize()

@@ -19,7 +19,7 @@ public class DynamicTableViewCellWithSwitch: DynamicTableViewCell {
         self.selectionStyle = .None
         
         self.rowSwitch = UISwitch()
-        self.rowSwitch.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.rowSwitch.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.rowSwitch)
         
         super.setup()

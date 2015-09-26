@@ -18,7 +18,7 @@ public class DynamicTypeLabel: UILabel {
     }
 
     public init(fontStyle: String) {
-        super.init(frame: CGRect.zeroRect)
+        super.init(frame: CGRect.zero)
         self.font = UIFont.preferredFontForTextStyle(fontStyle)
     }
 
@@ -28,7 +28,7 @@ public class DynamicTypeLabel: UILabel {
         self.setup()
     }
 
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.setup()

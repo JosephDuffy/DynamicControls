@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
-               BuildableName = "DynamicControls.framework"
-               BlueprintName = "Dynamic Controls"
-               ReferencedContainer = "container:Dynamic Controls.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D99D12A41A949B8000FEC5C5"
-               BuildableName = "Dynamic Controls Tests.xctest"
-               BlueprintName = "Dynamic Controls Tests"
+               BlueprintIdentifier = "D9988DCB1B49745A008DB144"
+               BuildableName = "Dynamic Controls (iOS 7).framework"
+               BlueprintName = "Dynamic Controls (iOS 7)"
                ReferencedContainer = "container:Dynamic Controls.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,26 +28,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D99D12A41A949B8000FEC5C5"
-               BuildableName = "Dynamic Controls Tests.xctest"
-               BlueprintName = "Dynamic Controls Tests"
-               ReferencedContainer = "container:Dynamic Controls.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
-            BuildableName = "DynamicControls.framework"
-            BlueprintName = "Dynamic Controls"
-            ReferencedContainer = "container:Dynamic Controls.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -78,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
-            BuildableName = "DynamicControls.framework"
-            BlueprintName = "Dynamic Controls"
+            BlueprintIdentifier = "D9988DCB1B49745A008DB144"
+            BuildableName = "Dynamic Controls (iOS 7).framework"
+            BlueprintName = "Dynamic Controls (iOS 7)"
             ReferencedContainer = "container:Dynamic Controls.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -96,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D99D129A1A949B8000FEC5C5"
-            BuildableName = "DynamicControls.framework"
-            BlueprintName = "Dynamic Controls"
+            BlueprintIdentifier = "D9988DCB1B49745A008DB144"
+            BuildableName = "Dynamic Controls (iOS 7).framework"
+            BlueprintName = "Dynamic Controls (iOS 7)"
             ReferencedContainer = "container:Dynamic Controls.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

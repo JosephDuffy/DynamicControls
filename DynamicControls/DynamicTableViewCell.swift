@@ -48,7 +48,7 @@ public class DynamicTableViewCell: UITableViewCell {
         self.setup()
     }
 
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.setup()
@@ -66,7 +66,7 @@ public class DynamicTableViewCell: UITableViewCell {
         self.updateFonts()
     }
 
-    func updateFonts() {
+    public func updateFonts() {
         if let style = self.style {
             // On iOS 8+ this is handled for us. Yey!
             if self.isLessThaniOS8 || self.forceUpdateDefaultLabels {
@@ -80,7 +80,7 @@ public class DynamicTableViewCell: UITableViewCell {
                     self.textLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
                     self.detailTextLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
                 case .Value2:
-                    println("Warning: UITableViewCellStyleValue2 does not currently support automatic dynamic font sizing on iOS 7")
+                    print("Warning: UITableViewCellStyleValue2 does not currently support automatic dynamic font sizing on iOS 7")
                 }
             }
         }
@@ -89,14 +89,14 @@ public class DynamicTableViewCell: UITableViewCell {
     public func heightInTableView(tableView: UITableView) -> CGFloat {
         var height: CGFloat!
         if self.calculateHeight {
+            self.setNeedsUpdateConstraints()
+            self.updateConstraintsIfNeeded()
+            
             if let labelsToUpdate = self.resizableLabels {
                 for labelToUpdate in labelsToUpdate {
                     labelToUpdate.preferredMaxLayoutWidth = labelToUpdate.frame.size.width
                 }
             }
-
-            self.setNeedsUpdateConstraints()
-            self.updateConstraintsIfNeeded()
 
             self.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGRectGetHeight(self.bounds))
 
@@ -110,6 +110,7 @@ public class DynamicTableViewCell: UITableViewCell {
                 // +1 for the cell separator
                 height = size.height + 1
             } else {
+                print("Warning: Cell's height could not be calculated properly. You may have auto layout issues in your cell")
                 // In some situations (such as the content view not having any/enough constraints to get a height), the
                 // size from the systemLayoutSizeFittingSize: will be 0. However, because this can _sometimes_ be intended
                 // (e.g., when adding to a default style; see: DynamicSubtitleTableViewCell), we just return

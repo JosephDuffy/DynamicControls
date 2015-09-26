@@ -11,7 +11,7 @@ import UIKit
 public class DynamicTypeSegmentedControl: UISegmentedControl {
 
     convenience public init() {
-        self.init(frame: CGRect.zeroRect)
+        self.init(frame: CGRect.zero)
     }
 
     override public init(frame: CGRect) {
@@ -20,7 +20,7 @@ public class DynamicTypeSegmentedControl: UISegmentedControl {
         self.setup()
     }
 
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.setup()

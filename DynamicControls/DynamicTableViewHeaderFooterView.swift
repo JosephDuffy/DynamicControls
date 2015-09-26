@@ -11,7 +11,7 @@ import UIKit
 public class DynamicTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
     convenience required public init() {
-        self.init(frame: CGRect.zeroRect)
+        self.init(frame: CGRect.zero)
         self.setup()
     }
     

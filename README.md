@@ -48,7 +48,7 @@ The first step to implementing the `UITableViewController` aspect of Dynamic Con
 
 First, implement to `cellReuseIdentifierForIndexPath:` method:
 
-```
+```swift
 override func cellReuseIdentifierForIndexPath(indexPath: NSIndexPath) -> String? {
     // Logic based on section and row
     if indexPath.section == 0 {
@@ -62,7 +62,7 @@ override func cellReuseIdentifierForIndexPath(indexPath: NSIndexPath) -> String?
     
 Next, you'll want the cell to have some content (based on your data). For this, implement the `configureCell:forIndexPath:` method. This method may be called multiple times for the same cell. This is to calculate the height for the cell prior to drawing it on the screen. If you return `nil` from the `cellReuseIdentifierForIndexPath:` method, this method will not be called for that cell. An example implementation would be:
 
-```
+```swift
 override func configureCell(cell: UITableViewCell, forIndexPath indexPath: NSIndexPath) {
     cell.textLabel?.text = "Row for section \(indexPath.section + 1) row \(indexPath.row + 1)"
 }
